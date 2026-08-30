@@ -1,89 +1,102 @@
-:root {
-  /* Backgrounds */
-  --bg-page: var(--color-neutral-50);
-  --bg-surface: var(--color-white);
-  --bg-surface-hover: var(--color-neutral-50);
-  --bg-surface-active: var(--color-neutral-100);
-  --bg-surface-elevated: var(--color-white);
+@theme {
+  /* ===== Page Surfaces ===== */
+  --bg-page:           var(--color-canvas);
+  --bg-surface:        var(--color-canvas);
+  --bg-surface-tint:   var(--color-canvas-tint);
+  --bg-surface-pearl:  var(--color-surface-pearl);
+  --bg-tile-dark:      var(--color-surface-tile-1);
+  --bg-tile-dark-2:    var(--color-surface-tile-2);
+  --bg-tile-dark-3:    var(--color-surface-tile-3);
+  --bg-nav:            var(--color-surface-black);
 
-  --bg-primary: var(--color-primary-500);
-  --bg-primary-hover: var(--color-primary-600);
-  --bg-primary-subtle: var(--color-primary-50);
+  /* Legacy surface tokens — kept for backward compat, map to PCE equivalents */
+  --bg-surface-hover:    var(--color-canvas-tint);
+  --bg-surface-active:   var(--color-canvas-tint);
+  --bg-surface-elevated: var(--color-canvas);
 
-  --bg-secondary: var(--color-secondary-500);
-  --bg-secondary-hover: var(--color-secondary-600);
-  --bg-secondary-subtle: var(--color-secondary-50);
+  /* ===== Action / Button Colors ===== */
+  --color-action-primary:          var(--color-accent);
+  --color-action-primary-hover:    color-mix(in srgb, var(--color-accent) 88%, black);
+  --color-action-secondary:        var(--color-primary);
+  --color-action-secondary-hover:  color-mix(in srgb, var(--color-primary) 88%, black);
 
-  --bg-danger: var(--color-error-500);
-  --bg-danger-hover: var(--color-error-600);
-  --bg-danger-subtle: var(--color-error-50);
+  /* Legacy action tokens (template) — repointed at PCE colors */
+  --color-action-tertiary:         var(--color-primary);
+  --color-action-tertiary-hover:   color-mix(in srgb, var(--color-primary) 88%, black);
+  --color-action-disabled:         var(--color-neutral-200);
 
-  /* Action Colors */
-  --color-action-primary: var(--color-sun-500);
-  --color-action-primary-hover: var(--color-sun-600);
-  --color-action-secondary: var(--color-navy-700);
-  --color-action-secondary-hover: var(--color-navy-800);
-  --color-action-tertiary: var(--color-ocean-600);
-  --color-action-tertiary-hover: var(--color-ocean-700);
-  --color-action-disabled: var(--color-neutral-200);
+  /* ===== Focus Rings ===== */
+  --focus-primary:   var(--color-accent-focus);    /* orange — primary button focus */
+  --focus-secondary: var(--color-primary-focus);   /* blue — secondary button focus */
 
-  --foreground: var(--text-base);
-  --background: var(--bg-page);
+  /* ===== Subtle / Subtle Backgrounds ===== */
+  --bg-primary:          var(--color-accent);
+  --bg-primary-hover:    color-mix(in srgb, var(--color-accent) 88%, black);
+  --bg-primary-subtle:   color-mix(in srgb, var(--color-accent) 12%, white);
+  --bg-secondary:        var(--color-primary);
+  --bg-secondary-hover:  color-mix(in srgb, var(--color-primary) 88%, black);
+  --bg-secondary-subtle: color-mix(in srgb, var(--color-primary) 12%, white);
+  --bg-danger:           var(--color-error-500);
+  --bg-danger-hover:     var(--color-error-600);
+  --bg-danger-subtle:    var(--color-error-50);
 
-  /* Text Colors */
-  --text-base: var(--color-neutral-900);
-  --text-primary: var(--color-primary-600);
-  --text-secondary: var(--color-neutral-600);
-  --text-tertiary: var(--color-neutral-400);
-  --text-disabled: var(--color-neutral-300);
+  /* ===== Text Colors ===== */
+  --text-base:        var(--color-ink);
+  --text-inverse:     var(--color-body-on-dark);
+  --text-muted-dark:  var(--color-body-muted);
+  --text-muted-light: var(--color-ink-muted-80);
+  --text-disabled:    var(--color-ink-muted-48);
 
-  --text-brand: var(--color-primary-600);
-  --text-inverse: var(--color-white);
+  /* Legacy text tokens — repointed at PCE colors */
+  --text-primary:   var(--color-accent);
+  --text-secondary: var(--color-ink-muted-80);
+  --text-tertiary:  var(--color-neutral-400);
+  --text-brand:     var(--color-accent);
 
+  /* Status text */
   --text-success: var(--color-success-700);
   --text-warning: var(--color-warning-700);
-  --text-error: var(--color-error-700);
-  --text-info: var(--color-info-700);
+  --text-error:   var(--color-error-700);
+  --text-info:    var(--color-info-700);
 
-  /* Borders */
-  --border-default: var(--color-neutral-200);
-  --border-subtle: var(--color-neutral-100);
-  --border-strong: var(--color-neutral-300);
-  --border-focus: var(--color-primary-300);
+  /* ===== Links ===== */
+  --link-color:    var(--color-primary);
+  --link-hover:    color-mix(in srgb, var(--color-primary) 88%, black);
+  --link-on-dark:  var(--color-primary-on-dark);
 
-  --border-error: var(--color-error-300);
-  --border-success: var(--color-success-300);
+  /* ===== Borders ===== */
+  --border-hairline: var(--color-hairline);
+  --border-soft:     var(--color-divider-soft);
+  --border-default:  var(--color-neutral-200);
+  --border-subtle:   var(--color-neutral-100);
+  --border-strong:   var(--color-neutral-300);
+  --border-focus:    var(--color-primary-focus);
+  --border-error:    var(--color-error-500);
+  --border-success:  var(--color-success-500);
 
-  /* Component Specific Semantics (mapped generally) */
-  --link-color: var(--color-primary-600);
-  --link-hover: var(--color-primary-700);
+  /* ===== Semantic Radius Tokens ===== */
+  /* These point at the PCE radius scale in dimensions.css */
+  --radius-button: var(--radius-pill);        /* CTA pills: 9999px */
+  --radius-card:   var(--radius-card);        /* Service/project cards: 18px */
+  --radius-input:  var(--radius-utility-btn); /* Form inputs: 8px */
+  --radius-badge:  var(--radius-pill);        /* Status badges: 9999px */
+  --radius-chip:   var(--radius-chip);        /* Inline chip links: 5px */
 
-  --shadow-card: var(--shadow-sm);
-  --shadow-popover: var(--shadow-lg);
+  /* ===== Shadows ===== */
+  --shadow-card:    none;   /* No card shadows in PCE — elevation via surface color only */
+  --shadow-popover: none;   /* No popover shadow — use backdrop-blur instead */
 
-  --radius-card: var(--radius-lg);
-  --radius-button: var(--radius-md);
-  --radius-input: var(--radius-md);
+  /* ===== Backdrop Blur ===== */
+  --backdrop-nav: blur(20px) saturate(180%);  /* Frosted sub-nav and floating bars */
+
+  /* ===== Z-index ===== */
+  --z-header: 40;    /* Global nav — must sit above hero photography */
+
+  /* ===== Global bridge tokens (used by globals.css body rule) ===== */
+  --background: var(--bg-page);
+  --foreground: var(--text-base);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Dark Mode Overrides */
-    --bg-page: var(--color-neutral-950);
-    --bg-surface: var(--color-neutral-900);
-    --bg-surface-hover: var(--color-neutral-800);
-    --bg-surface-active: var(--color-neutral-700);
-
-    --text-base: var(--color-neutral-50);
-    --text-primary: var(--color-primary-300);
-    --text-secondary: var(--color-neutral-400);
-    --text-tertiary: var(--color-neutral-500);
-
-    --border-default: var(--color-neutral-800);
-    --border-subtle: var(--color-neutral-900);
-    --border-strong: var(--color-neutral-700);
-
-    --bg-primary-subtle: var(--color-primary-950);
-    --bg-danger-subtle: var(--color-error-950);
-  }
-}
+/* ===== DARK MODE ===== */
+/* Intentionally removed. PCE is a fixed brand theme — no auto dark mode. */
+/* If dark mode is needed in future, add an explicit [data-theme="dark"] selector instead. */

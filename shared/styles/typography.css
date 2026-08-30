@@ -1,119 +1,251 @@
-:root {
-  /* Font Families */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+@theme {
+  /* ===== Font Sizes ===== */
+  /* Template scale — kept per no-delete rule */
+  --text-xs:   0.75rem;    /* 12px */
+  --text-sm:   0.875rem;   /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg:   1.125rem;   /* 18px */
+  --text-xl:   1.25rem;    /* 20px */
+  --text-2xl:  1.5rem;     /* 24px */
+  --text-3xl:  1.875rem;   /* 30px */
+  --text-4xl:  2.25rem;    /* 36px */
+  --text-5xl:  3rem;       /* 48px */
 
-  /* Font Sizes */
-  --text-xs: 0.75rem;
-  /* 12px */
-  --text-sm: 0.875rem;
-  /* 14px */
-  --text-base: 1rem;
-  /* 16px */
-  --text-lg: 1.125rem;
-  /* 18px */
-  --text-xl: 1.25rem;
-  /* 20px */
-  --text-2xl: 1.5rem;
-  /* 24px */
-  --text-3xl: 1.875rem;
-  /* 30px */
-  --text-4xl: 2.25rem;
-  /* 36px */
-  --text-5xl: 3rem;
-  /* 48px */
+  /* PCE Type Scale — raw pixel values used by components */
+  --text-hero:          clamp(48px, 4vw + 32px, 80px); /* Hero headline (fluid 48px-80px on mobile/desktop) */
+  --text-display-lg:    clamp(40px, 2.8vw + 31px, 60px); /* Section / tile headlines (fluid 40px-60px) */
+  --text-display-md:    40px;   /* Section heads */
+  --text-lead:          28px;   /* Tile subcopy */
+  --text-lead-airy:     24px;   /* Long-form lead paragraphs */
+  --text-tagline:       21px;   /* Sub-tile tagline; sub-nav category */
+  --text-body-strong:   16px;   /* Inline strong emphasis */
+  --text-body:          16px;   /* Default paragraph */
+  --text-dense-link:    16px;   /* Footer link lists */
+  --text-caption:       14px;   /* Secondary captions */
+  --text-caption-strong: 14px;  /* Emphasized captions */
+  --text-btn-large:     18px;   /* Large hero CTAs */
+  --text-btn-utility:   14px;   /* Utility / nav button labels */
+  --text-fine-print:    12px;   /* Fine-print, footer body */
+  --text-nav-link:      12px;   /* Global nav menu items */
 
-  /* Font Weights */
-  --weight-regular: 400;
-  --weight-medium: 500;
+  /* ===== Font Weights ===== */
+  /* PCE ladder: 300 / 400 / 600 / 700 — weight-500 deliberately excluded */
+  --weight-light:    300;
+  --weight-regular:  400;
+  /* --weight-medium: 500 — removed: not part of PCE type ladder */
   --weight-semibold: 600;
-  --weight-bold: 700;
+  --weight-bold:     700;
+  --weight-extrabold: 800;
 
-  /* Line Heights */
-  --leading-none: 1;
-  --leading-tight: 1.25;
-  --leading-snug: 1.375;
-  --leading-normal: 1.5;
+  /* ===== Line Heights ===== */
+  --leading-none:    1;
+  --leading-tight:   1.25;
+  --leading-snug:    1.375;
+  --leading-normal:  1.5;
   --leading-relaxed: 1.625;
-  --leading-loose: 2;
+  --leading-loose:   2;
+
+  /* ===== Letter Spacing ===== */
+  /* Previously missing from template — required by PCE design.md type specs */
+  --tracking-tightest: -0.374px;  /* body, display-md, caption, btn-utility */
+  --tracking-tighter:  -0.28px;   /* hero headline */
+  --tracking-tight:    -0.224px;  /* caption, fine-print, nav-link */
+  --tracking-normal:    0px;      /* display-lg, lead-airy, dense-link */
+  --tracking-wide:      0.196px;  /* lead */
+  --tracking-wider:     0.231px;  /* tagline */
 }
 
+/* ===== Base Element Rules ===== */
+/* font-family alias declared on body (not :root) — Next.js injects */
+/* --font-montserrat-raw onto <body>, not :root. Declaring here ensures */
+/* the var() resolves correctly. See TYPOGRAPHY-FONT-RESOLUTION-FIX.md */
 body {
+  --font-sans: var(--font-montserrat-raw), system-ui, -apple-system, sans-serif;
   font-family: var(--font-sans);
-  color: var(--text-base);
-  line-height: var(--leading-normal);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  line-height: 1.47;
+  letter-spacing: var(--tracking-tightest);
+  color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-display);
-  font-weight: var(--weight-bold);
-  color: var(--text-base);
-  line-height: var(--leading-tight);
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
-  font-size: var(--text-5xl);
+  font-family: var(--font-sans);
+  font-size: var(--text-hero);
+  font-weight: var(--weight-extrabold);
+  line-height: 1.07;
+  letter-spacing: var(--tracking-tighter);
 }
 
 h2 {
-  font-size: var(--text-4xl);
+  font-family: var(--font-sans);
+  font-size: var(--text-display-lg);
+  font-weight: var(--weight-semibold);
+  line-height: 1.10;
+  letter-spacing: var(--tracking-normal);
 }
 
 h3 {
-  font-size: var(--text-3xl);
+  font-family: var(--font-sans);
+  font-size: var(--text-display-md);
+  font-weight: var(--weight-semibold);
+  line-height: 1.47;
+  letter-spacing: var(--tracking-tightest);
 }
 
 h4 {
-  font-size: var(--text-2xl);
+  font-family: var(--font-sans);
+  font-size: var(--text-lead);
+  font-weight: var(--weight-regular);
+  line-height: 1.14;
+  letter-spacing: var(--tracking-wide);
 }
 
 h5 {
-  font-size: var(--text-xl);
+  font-family: var(--font-sans);
+  font-size: var(--text-tagline);
+  font-weight: var(--weight-semibold);
+  line-height: 1.19;
+  letter-spacing: var(--tracking-wider);
 }
 
 h6 {
-  font-size: var(--text-lg);
+  font-family: var(--font-sans);
+  font-size: var(--text-body-strong);
+  font-weight: var(--weight-semibold);
+  line-height: 1.24;
+  letter-spacing: var(--tracking-tightest);
 }
 
 p {
-  margin-bottom: var(--spacing-4);
-  color: var(--text-secondary);
+  font-size: var(--text-body);
+  line-height: 1.47;
+  letter-spacing: var(--tracking-tightest);
+  color: var(--color-ink);
 }
 
-/* Utilities */
+/* ===== PCE Typography Utility Classes ===== */
+/* Declared as @utility so Tailwind compiles responsive variants (e.g. lg:text-hero) */
 
-/* Size Variants */
-.text-xs { font-size: var(--text-xs); line-height: var(--leading-normal); }
-.text-sm { font-size: var(--text-sm); line-height: var(--leading-normal); }
-.text-base { font-size: var(--text-base); line-height: var(--leading-normal); }
-.text-lg { font-size: var(--text-lg); line-height: var(--leading-snug); }
-.text-xl { font-size: var(--text-xl); line-height: var(--leading-snug); }
-.text-2xl { font-size: var(--text-2xl); line-height: var(--leading-tight); }
-.text-3xl { font-size: var(--text-3xl); line-height: var(--leading-tight); }
-.text-4xl { font-size: var(--text-4xl); line-height: var(--leading-tight); }
-.text-5xl { font-size: var(--text-5xl); line-height: var(--leading-tight); }
+@utility text-hero {
+  font-size: var(--text-hero);
+  font-weight: var(--weight-extrabold);
+  line-height: 1.07;
+  letter-spacing: var(--tracking-tighter);
+}
 
-/* Weight Variants */
-.font-regular { font-weight: var(--weight-regular); }
-.font-medium { font-weight: var(--weight-medium); }
-.font-semibold { font-weight: var(--weight-semibold); }
-.font-bold { font-weight: var(--weight-bold); }
+@utility text-display-lg {
+  font-size: var(--text-display-lg);
+  font-weight: var(--weight-semibold);
+  line-height: 1.10;
+  letter-spacing: var(--tracking-normal);
+}
 
-/* Intent Variants (Colors) */
-.text-default { color: var(--text-base); }
-.text-primary { color: var(--text-primary); }
-.text-secondary { color: var(--text-secondary); }
-.text-muted { color: var(--text-tertiary); }
-.text-brand { color: var(--text-brand); }
-.text-error { color: var(--text-error); }
-.text-success { color: var(--text-success); }
-.text-warning { color: var(--text-warning); }
-.text-info { color: var(--text-info); }
-.text-inverse { color: var(--text-inverse); }
+@utility text-display-md {
+  font-size: var(--text-display-md);
+  font-weight: var(--weight-semibold);
+  line-height: 1.47;
+  letter-spacing: var(--tracking-tightest);
+}
+
+@utility text-lead {
+  font-size: var(--text-lead);
+  font-weight: var(--weight-regular);
+  line-height: 1.14;
+  letter-spacing: var(--tracking-wide);
+}
+
+@utility text-lead-airy {
+  font-size: var(--text-lead-airy);
+  font-weight: var(--weight-regular);
+  line-height: 1.5;
+  letter-spacing: var(--tracking-normal);
+}
+
+@utility text-tagline {
+  font-size: var(--text-tagline);
+  font-weight: var(--weight-semibold);
+  line-height: 1.19;
+  letter-spacing: var(--tracking-wider);
+}
+
+@utility text-body-strong {
+  font-size: var(--text-body-strong);
+  font-weight: var(--weight-semibold);
+  line-height: 1.24;
+  letter-spacing: var(--tracking-tightest);
+}
+
+@utility text-body {
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  line-height: 1.47;
+  letter-spacing: var(--tracking-tightest);
+}
+
+@utility text-dense-link {
+  font-size: var(--text-dense-link);
+  font-weight: var(--weight-regular);
+  line-height: 2.41;
+  letter-spacing: var(--tracking-normal);
+}
+
+@utility text-caption {
+  font-size: var(--text-caption);
+  font-weight: var(--weight-regular);
+  line-height: 1.43;
+  letter-spacing: var(--tracking-tight);
+}
+
+@utility text-caption-strong {
+  font-size: var(--text-caption-strong);
+  font-weight: var(--weight-semibold);
+  line-height: 1.29;
+  letter-spacing: var(--tracking-tight);
+}
+
+@utility text-btn-large {
+  font-size: var(--text-btn-large);
+  font-weight: var(--weight-regular);
+  line-height: 1.0;
+  letter-spacing: var(--tracking-normal);
+}
+
+@utility text-btn-utility {
+  font-size: var(--text-btn-utility);
+  font-weight: var(--weight-regular);
+  line-height: 1.29;
+  letter-spacing: var(--tracking-tight);
+}
+
+@utility text-fine-print {
+  font-size: var(--text-fine-print);
+  font-weight: var(--weight-regular);
+  line-height: 1.0;
+  letter-spacing: var(--tracking-tight);
+}
+
+@utility text-nav-link {
+  font-size: var(--text-nav-link);
+  font-weight: var(--weight-regular);
+  line-height: 1.0;
+  letter-spacing: var(--tracking-tight);
+}
+
+/* ===== Text Intent Color Utilities ===== */
+/* Used by the <Text intent="..."> prop in shared/components/ui/text.tsx */
+/* These set color only — they do not override the type scale. */
+
+.text-inverse     { color: var(--text-inverse); }
+.text-muted-dark  { color: var(--text-muted-dark); }
+.text-muted-light { color: var(--text-muted-light); }
+.text-disabled    { color: var(--text-disabled); }
+.text-link        { color: var(--link-color); }
+.text-link-on-dark { color: var(--link-on-dark); }
+.text-brand       { color: var(--text-brand); }
+.text-error       { color: var(--text-error); }
+.text-success     { color: var(--text-success); }
+.text-warning     { color: var(--text-warning); }
+.text-info        { color: var(--text-info); }

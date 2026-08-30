@@ -1,50 +1,68 @@
-:root {
-  /* Spacing Scale (4px base) */
-  --spacing-0: 0px;
-  --spacing-1: 4px;
-  /* 0.25rem */
-  --spacing-1-5: 6px;
-  /* 0.375rem */
-  --spacing-2: 8px;
-  /* 0.5rem */
-  --spacing-3: 12px;
-  /* 0.75rem */
-  --spacing-4: 16px;
-  /* 1rem */
-  --spacing-5: 20px;
-  /* 1.25rem */
-  --spacing-6: 24px;
-  /* 1.5rem */
-  --spacing-8: 32px;
-  /* 2rem */
-  --spacing-10: 40px;
-  /* 2.5rem */
-  --spacing-12: 48px;
-  /* 3rem */
-  --spacing-16: 64px;
-  /* 4rem */
-  --spacing-20: 80px;
-  /* 5rem */
-  --spacing-24: 96px;
-  /* 6rem */
-  --spacing-32: 128px;
-  /* 8rem */
+@theme {
+  /* ===== Spacing Scale (4px base — never changes) ===== */
+  --spacing-0:    0px;
+  --spacing-1:    4px;
+  --spacing-1-5:  6px;
+  --spacing-2:    8px;
+  --spacing-3:    12px;
+  --spacing-4:    16px;
+  --spacing-5:    20px;
+  --spacing-6:    24px;
+  --spacing-8:    32px;
+  --spacing-10:   40px;
+  --spacing-12:   48px;
+  --spacing-16:   64px;
+  --spacing-20:   80px;
+  --spacing-24:   96px;
+  --spacing-25:   100px;   /* PCE section pad-y desktop */
+  --spacing-30:   120px;   /* PCE section pad-x desktop */
+  --spacing-32:   128px;
 
-  /* Border Radii */
-  --radius-none: 0px;
-  --radius-xs: 2px;
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 8px;
-  --radius-xl: 12px;
+  /* ===== Border Radius Scale ===== */
+  /* Template defaults — kept per no-delete rule */
+  --radius-xs:  2px;
+  --radius-sm:  4px;
+  --radius-md:  6px;
+  --radius-lg:  8px;
+  --radius-xl:  12px;
   --radius-2xl: 16px;
   --radius-3xl: 24px;
   --radius-full: 9999px;
 
-  /* Layout Widths */
-  --container-sm: 640px;
-  --container-md: 768px;
-  --container-lg: 1024px;
-  --container-xl: 1280px;
-  --container-2xl: 1536px;
+  /* PCE Radius Scale — these are the values components use */
+  --radius-none:        0px;     /* full-bleed hero tiles */
+  --radius-chip:        5px;     /* inline chip links */
+  --radius-utility-btn: 8px;     /* dark utility buttons, card imagery */
+  --radius-pearl-btn:   11px;    /* pearl button capsules */
+  --radius-card:        18px;    /* service cards, project cards */
+  --radius-pill:        9999px;  /* CTA pills, search input */
+  --radius-circle:      50%;     /* circular control chips over photography */
+
+  /* ===== Container Widths ===== */
+  --container-sm:      640px;
+  --container-md:      768px;
+  --container-lg:      1024px;
+  --container-xl:      1280px;
+  --container-2xl:     1536px;
+  --container-content: 980px;   /* text-heavy sections (about, sustainability) */
+
+  /* ===== Section Padding — Mobile Default (< 768px) ===== */
+  /* Desktop values applied at 768px breakpoint below */
+  --section-pad-y: 40px;   /* top + bottom */
+  --section-pad-x: 20px;   /* left + right — mobile value is always 20px */
+}
+
+@media (min-width: 768px) {
+  :root {
+    --section-pad-y: 100px;   /* desktop — from design.md */
+    --section-pad-x: 120px;   /* desktop — from design.md */
+  }
+}
+
+/* ===== Section Layout Class ===== */
+/* Applied to every standard content section. */
+/* Full-bleed sections (heroes, photography) skip this class entirely — */
+/* they do NOT override it with padding: 0. */
+.section {
+  padding: var(--section-pad-y) var(--section-pad-x);
 }

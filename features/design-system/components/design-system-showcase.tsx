@@ -71,12 +71,12 @@ export function DesignSystemShowcase({
                             <Plane className="w-6 h-6 text-[var(--color-text-primary)]" />
                         </div>
                         <div>
-                            <Text variant="xl" weight="bold" className="tracking-tight block" intent="primary">Juyonna Travels</Text>
-                            <Text variant="xs" intent="info" className="opacity-80">Design System v1.0</Text>
+                            <Text variant="display-md" className="tracking-tight block" intent="default">Juyonna Travels</Text>
+                            <Text variant="fine-print" intent="info" className="opacity-80">Design System v1.0</Text>
                         </div>
                     </div>
                     <div className="flex items-center gap-4">
-                        <Text variant="sm" intent="info" className="opacity-80">Last updated: Week 1</Text>
+                        <Text variant="caption" intent="info" className="opacity-80">Last updated: Week 1</Text>
                     </div>
                 </div>
             </header>
@@ -85,7 +85,7 @@ export function DesignSystemShowcase({
                 {/* Sidebar Navigation */}
                 <nav className="w-56 flex-shrink-0">
                     <div className="sticky top-24 bg-white rounded-xl shadow-sm border border-gray-100 p-4">
-                        <Text as="p" variant="xs" weight="semibold" intent="muted" className="uppercase tracking-wider mb-3 block">Sections</Text>
+                        <Text as="p" variant="fine-print" intent="disabled" className="uppercase tracking-wider mb-3 block">Sections</Text>
                         <ul className="space-y-1">
                             {sections.map((section) => (
                                 <li key={section.id}>
@@ -96,7 +96,7 @@ export function DesignSystemShowcase({
                                             : "hover:bg-[var(--color-bg-muted)]"
                                             }`}
                                     >
-                                        <Text variant="sm" weight="medium" intent={activeSection === section.id ? 'primary' : 'secondary'}>
+                                        <Text variant="caption" intent={activeSection === section.id ? 'brand' : 'default'}>
                                             {section.label}
                                         </Text>
                                     </button>
