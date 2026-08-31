@@ -12,11 +12,11 @@ export const PROJECTS_DATA: Record<string, ProjectDetail> = {
         category: "HDD RIVER CROSSING",
         heroImage: "/pictures/home-page/akk-river-crossing.jpg",
         bentoImages: [
-            "/pictures/home-page/horizontal-drilling-new.jpg",
-            "/pictures/capabilities/prepare-equipment.jpg",
-            "/pictures/capabilities/engineer-on-site.jpg",
-            "/pictures/home-page/pipe-handling-capacity.jpg",
-            "/pictures/capabilities/completed-project.jpg"
+            "/pictures/case-study/akk/akk-bento-1.jpg",
+            "/pictures/case-study/akk/akk-bento-2.jpg",
+            "/pictures/case-study/akk/akk-bento-3.jpg",
+            "/pictures/case-study/akk/akk-bento-4.jpg",
+            "/pictures/case-study/akk/akk-bento-5.jpg"
         ],
         intro: "PCE completed the specialist HDD crossing for the 40-inch AKK gas pipeline beneath the River Niger through mixed sand, gravel and rock strata.",
         specs: [
@@ -76,13 +76,13 @@ export const PROJECTS_DATA: Record<string, ProjectDetail> = {
         date: "APRIL 2026",
         location: "Ndoni, Rivers State / Aboh, Delta State, Nigeria",
         category: "HDD RIVER CROSSING",
-        heroImage: "/pictures/home-page/pipeline-drilling.jpg",
+        heroImage: "/pictures/case-study/ob3/ob3-hero.jpg",
         bentoImages: [
-            "/pictures/home-page/horizontal-drilling-new.jpg",
-            "/pictures/capabilities/prepare-equipment.jpg",
-            "/pictures/capabilities/engineer-on-site.jpg",
-            "/pictures/home-page/pipe-handling-capacity.jpg",
-            "/pictures/capabilities/completed-project.jpg"
+            "/pictures/case-study/ob3/ob3-bento-1.jpg",
+            "/pictures/case-study/ob3/ob3-bento-2.jpg",
+            "/pictures/case-study/ob3/ob3-bento-3.jpg",
+            "/pictures/case-study/ob3/ob3-bento-4.jpg",
+            "/pictures/case-study/ob3/ob3-bento-5.jpg"
         ],
         intro: "PCE executed the River Niger HDD crossing on the OB3 Gas Pipeline between Ndoni in Rivers State and Aboh in Delta State. The crossing combined a 48-inch pipeline, approximately 2 km of HDD and complex sand, gravel and rock strata.",
         specs: [

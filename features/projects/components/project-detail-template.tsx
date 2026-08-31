@@ -44,7 +44,7 @@ export const ProjectDetailTemplate: React.FC<ProjectDetailTemplateProps> = ({ pr
                     )}
 
                     {/* 2. Main Headline (60px) */}
-                    <h1 className="!text-[36px] sm:!text-[60px] text-[var(--color-ink)] !font-semibold !leading-[1.10] tracking-tight">
+                    <h1 className="!text-[36px] sm:!text-[60px] text-[var(--color-ink)] !font-extrabold !leading-[1.10] tracking-tight">
                         {project.title}
                     </h1>
 
