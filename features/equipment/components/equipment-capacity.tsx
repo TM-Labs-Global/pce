@@ -4,6 +4,7 @@ import React from 'react';
 import { Text } from '@/shared/components/ui/text';
 import Link from 'next/link';
 import { ArrowRight } from '@phosphor-icons/react';
+import { FadeInSlideUp, StaggerContainer, StaggerItem } from '@/shared/components/ui/fade-in-slide-up';
 
 export const OurCapabilities = () => {
     const images = [
@@ -26,7 +27,7 @@ export const OurCapabilities = () => {
             <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-y-10 lg:gap-y-0 gap-x-16 lg:gap-x-24 items-center">
                 
                 {/* Left Column: Heading, Narrative, and CTA */}
-                <div className="lg:col-span-6 flex flex-col justify-between h-full py-2">
+                <FadeInSlideUp className="lg:col-span-6 flex flex-col justify-between h-full py-2">
                     {/* Header Group */}
                     <div className="flex flex-col items-start">
                         {/* Headline */}
@@ -104,10 +105,10 @@ export const OurCapabilities = () => {
                             <ArrowRight size={14} className="text-[var(--color-accent)] transition-transform duration-300 group-hover:translate-x-1" />
                         </Link>
                     </div>
-                </div>
+                </FadeInSlideUp>
 
                 {/* Right Column: Dynamic Looping Slideshow (Desktop Only) */}
-                <div className="hidden lg:block lg:col-span-6 relative w-full h-[320px] sm:h-[400px] lg:h-[520px] rounded-xl overflow-hidden group border border-black/5 bg-black/5">
+                <FadeInSlideUp delay={0.1} className="hidden lg:block lg:col-span-6 relative w-full h-[320px] sm:h-[400px] lg:h-[520px] rounded-xl overflow-hidden group border border-black/5 bg-black/5">
                     {images.map((imgUrl, index) => (
                         <div 
                             key={imgUrl}
@@ -119,7 +120,7 @@ export const OurCapabilities = () => {
                             style={{ backgroundImage: `url("${imgUrl}")` }}
                         />
                     ))}
-                </div>
+                </FadeInSlideUp>
 
             </div>
         </section>

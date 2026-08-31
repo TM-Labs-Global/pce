@@ -17,7 +17,7 @@ export const ResourcesHero = () => {
             {/* Stacked Headline & Subtext */}
             <div className="flex flex-col gap-6 w-full max-w-6xl">
                 <Text variant="display-lg" as="h1" intent="default" className="!font-extrabold leading-tight !text-white max-w-[1400px]">
-                    Technical documentation, datasheets & company literature.
+                    Technical materials, datasheets & company literature.
                 </Text>
                 <p className="!text-[16px] md:!text-[20px] !text-white leading-relaxed max-w-[720px]">
                     Access PCE Nigeria&apos;s technical specifications, HDD equipment capability brochures, QHSE frameworks, and downloadable project case studies.

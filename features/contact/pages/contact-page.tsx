@@ -44,14 +44,14 @@ export const ContactPage = () => {
             <section className="w-full section py-16 lg:py-24">
                 <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
                     
-                    {/* Left Column: Contact Details */}
-                    <div className="lg:col-span-5">
-                        <ContactDetails />
+                    {/* Contact Form (First on Mobile, Right on Desktop) */}
+                    <div className="lg:col-span-7 order-1 lg:order-2">
+                        <ContactForm />
                     </div>
 
-                    {/* Right Column: Contact Form */}
-                    <div className="lg:col-span-7">
-                        <ContactForm />
+                    {/* Contact Details (Second on Mobile, Left on Desktop) */}
+                    <div className="lg:col-span-5 order-2 lg:order-1">
+                        <ContactDetails />
                     </div>
 
                 </div>

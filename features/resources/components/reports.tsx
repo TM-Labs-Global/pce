@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { DownloadSimple } from '@phosphor-icons/react';
+import { StaggerContainer, StaggerItem } from '@/shared/components/ui/fade-in-slide-up';
 
 interface ReportCategory {
     id: string;
@@ -24,69 +25,6 @@ const reportCategories: ReportCategory[] = [
             { id: 'qhse-profile', title: 'QHSE & Operations Profile' },
         ],
     },
-    {
-        id: 'sustainability',
-        label: 'Sustainability Reports',
-        items: [
-            { id: 'sus-2025', title: '2025 Sustainability & ESG Report' },
-            { id: 'sus-2024', title: '2024 Sustainability & ESG Report' },
-            { id: 'sus-2023', title: '2023 Sustainability & ESG Report' },
-        ],
-    },
-    {
-        id: 'financial',
-        label: 'Abridged Unaudited Financial Statement',
-        items: [
-            { id: 'fin-q3-2025', title: 'Q3 2025 Financial Statement' },
-            { id: 'fin-q2-2025', title: 'Q2 2025 Financial Statement' },
-            { id: 'fin-q1-2025', title: 'Q1 2025 Financial Statement' },
-        ],
-    },
-    {
-        id: 'proxy',
-        label: 'Proxy Form',
-        items: [
-            { id: 'proxy-2025', title: '2025 AGM Proxy Form' },
-            { id: 'proxy-2024', title: '2024 AGM Proxy Form' },
-        ],
-    },
-    {
-        id: 'dividend',
-        label: 'Unclaimed Dividend',
-        items: [
-            { id: 'div-2025', title: '2025 Unclaimed Dividend List' },
-        ],
-    },
-    {
-        id: 'agm',
-        label: 'Notice of AGM',
-        items: [
-            { id: 'agm-2025', title: 'Notice of 2025 Annual General Meeting' },
-        ],
-    },
-    {
-        id: 'covid',
-        label: 'COVID-19 Impact',
-        items: [
-            { id: 'covid-doc', title: 'Operational Resilience & Continuity Report' },
-        ],
-    },
-    {
-        id: 'audited',
-        label: 'Audited Reports',
-        items: [
-            { id: 'aud-2025', title: '2025 Audited Financial Report' },
-            { id: 'aud-2024', title: '2024 Audited Financial Report' },
-        ],
-    },
-    {
-        id: 'others',
-        label: 'Others',
-        items: [
-            { id: 'oth-1', title: 'PCE Corporate Governance Framework' },
-            { id: 'oth-2', title: 'QHSE Compliance Guidelines' },
-        ],
-    },
 ];
 
 export const Reports = () => {
@@ -98,8 +36,8 @@ export const Reports = () => {
         <section className="w-full section py-16 lg:py-24 bg-white">
             <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
                 
-                {/* Left Sidebar Navigation */}
-                <div className="lg:col-span-3 flex flex-col border-r border-black/10 pr-0 gap-1 relative">
+                {/* Left Sidebar / Top Category Navigation */}
+                <div className="lg:col-span-3 flex flex-row lg:flex-col overflow-x-auto lg:overflow-visible border-b lg:border-b-0 lg:border-r border-black/10 gap-2 lg:gap-1 relative pb-2 lg:pb-0 whitespace-nowrap scrollbar-none">
                     {reportCategories.map((category) => {
                         const isActive = category.id === activeTabId;
                         return (
@@ -112,9 +50,9 @@ export const Reports = () => {
                                         : 'text-[var(--color-ink-muted-48)] hover:text-[var(--color-primary)]'
                                 }`}
                             >
-                                <span className="pr-4">{category.label}</span>
+                                <span className="pr-2 lg:pr-4">{category.label}</span>
                                 {isActive && (
-                                    <span className="absolute -right-[1.5px] top-0 bottom-0 w-[3px] bg-[var(--color-primary)] rounded-full z-10" />
+                                    <span className="absolute left-0 right-0 -bottom-[1px] h-[3px] w-full lg:w-[3px] lg:top-0 lg:bottom-0 lg:left-auto lg:-right-[1.5px] lg:h-auto bg-[var(--color-primary)] rounded-full z-10" />
                                 )}
                             </button>
                         );
@@ -123,7 +61,7 @@ export const Reports = () => {
 
                 {/* Right Content Cards Grid */}
                 <div className="lg:col-span-9">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+                    <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
                         {activeCategory.items.map((item) => {
                             const CardContent = (
                                 <>
@@ -147,27 +85,29 @@ export const Reports = () => {
                                 </>
                             );
 
-                            return item.downloadUrl ? (
-                                <a
-                                    key={item.id}
-                                    href={item.downloadUrl}
-                                    download
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="relative bg-[#052237] text-white rounded-2xl p-6 lg:p-7 h-[360px] flex flex-col justify-between overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer no-underline block"
-                                >
-                                    {CardContent}
-                                </a>
-                            ) : (
-                                <div
-                                    key={item.id}
-                                    className="relative bg-[#052237] text-white rounded-2xl p-6 lg:p-7 h-[360px] flex flex-col justify-between overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer"
-                                >
-                                    {CardContent}
-                                </div>
+                            return (
+                                <StaggerItem key={item.id}>
+                                    {item.downloadUrl ? (
+                                        <a
+                                            href={item.downloadUrl}
+                                            download
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="relative bg-[#052237] text-white rounded-2xl p-6 lg:p-7 h-[360px] flex flex-col justify-between overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer no-underline block"
+                                        >
+                                            {CardContent}
+                                        </a>
+                                    ) : (
+                                        <div
+                                            className="relative bg-[#052237] text-white rounded-2xl p-6 lg:p-7 h-[360px] flex flex-col justify-between overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer"
+                                        >
+                                            {CardContent}
+                                        </div>
+                                    )}
+                                </StaggerItem>
                             );
                         })}
-                    </div>
+                    </StaggerContainer>
                 </div>
 
             </div>

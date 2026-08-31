@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from '@/shared/components/ui/text';
 import { Button } from '@/shared/components/ui/button';
-import Link from 'next/link';
+import { FadeInSlideUp } from '@/shared/components/ui/fade-in-slide-up';
 import { ArrowRight } from '@phosphor-icons/react';
 
 export const HomeHero = () => {
@@ -27,24 +27,24 @@ export const HomeHero = () => {
             </div>
 
             {/* Content Container */}
-            <div className="relative z-[var(--z-elevate)] w-full px-[var(--section-pad-x)] py-25 flex flex-col items-start">
+            <div className="relative z-[var(--z-elevate)] w-full px-[var(--section-pad-x)] pt-32 pb-24 md:pb-[12vh] lg:pb-[15vh] flex flex-col items-start">
                 
                 {/* Headline */}
-                <div className="max-w-[1000px] mb-6">
+                <FadeInSlideUp aboveFold delay={0} className="max-w-[1000px] mb-6">
                     <Text variant="hero" intent="inverse">
                         Engineering Complex <span className="text-[var(--color-accent)]">Pipeline</span> Crossings.
                     </Text>
-                </div>
+                </FadeInSlideUp>
 
                 {/* Sub-headline */}
-                <div className="max-w-[800px] mb-10">
+                <FadeInSlideUp aboveFold delay={0.15} className="max-w-[800px] mb-10">
                     <Text variant="lead-airy" intent="inverse" className="!text-[16px] md:!text-[20px] !leading-relaxed">
                         Integrated HDD, pipeline EPC and deep-pipeline location capability from assessment and engineering through construction and commissioning.
                     </Text>
-                </div>
+                </FadeInSlideUp>
 
                 {/* Buttons Row */}
-                <div className="flex flex-wrap gap-4">
+                <FadeInSlideUp aboveFold delay={0.3} className="flex flex-wrap gap-4">
                     <Button variant="primary" href="/capabilities" rightIcon={<ArrowRight weight="bold" aria-hidden="true" />}>
                         Explore Our Capabilities
                     </Button>
@@ -52,7 +52,7 @@ export const HomeHero = () => {
                     <Button variant="tertiary" href="/contact" rightIcon={<ArrowRight weight="bold" aria-hidden="true" />}>
                         Start a Project
                     </Button>
-                </div>
+                </FadeInSlideUp>
             </div>
         </section>
     );

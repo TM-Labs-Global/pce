@@ -8,14 +8,14 @@ export const ProjectsHome = () => {
             <div className="absolute inset-0 z-0">
                 <div
                     className="absolute inset-0 w-full h-full bg-cover bg-center opacity-60"
-                    style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80")' }}
+                    style={{ backgroundImage: 'url("/pictures/projects/project-hero.JPG")' }}
                 />
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-tile-dark)] via-[var(--bg-tile-dark)]/40 to-transparent" />
             </div>
 
             {/* Content Container */}
-            <div className="relative z-[var(--z-elevate)] w-full px-[var(--section-pad-x)] py-25 flex flex-col items-start">
+            <div className="relative z-[var(--z-elevate)] w-full px-[var(--section-pad-x)] pt-32 pb-24 md:pb-[12vh] lg:pb-[15vh] flex flex-col items-start">
                 
                 {/* Headline */}
                 <div className="max-w-[1000px] mb-6">

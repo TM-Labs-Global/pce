@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text } from '@/shared/components/ui/text';
+import { FadeInSlideUp, StaggerContainer, StaggerItem } from '@/shared/components/ui/fade-in-slide-up';
 
 export const PeopleScale = () => {
     const stats = [
@@ -31,8 +32,8 @@ export const PeopleScale = () => {
                 
                 {/* Heading Block */}
                 <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end">
-                    {/* Left Column (Tagline & Heading) */}
-                    <div className="lg:col-span-7 flex flex-col items-start max-w-[680px]">
+                    {/* Left Column */}
+                    <FadeInSlideUp className="lg:col-span-7 flex flex-col items-start max-w-[680px]">
                         {/* Tagline */}
                         <div className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-3 mb-6">
                             <span className="w-6 h-[3px] bg-[var(--color-accent)] inline-block" />
@@ -45,23 +46,20 @@ export const PeopleScale = () => {
                         <Text variant="display-lg" as="h2" intent="inverse" className="!font-extrabold leading-tight">
                             The capability starts with the people behind it.
                         </Text>
-                    </div>
+                    </FadeInSlideUp>
 
-                    {/* Right Column (Subtext) */}
-                    <div className="lg:col-span-5">
+                    {/* Right Column */}
+                    <FadeInSlideUp delay={0.1} className="lg:col-span-5">
                         <p className="text-base md:text-lg leading-relaxed !text-white/70 font-normal">
                             Specialist expertise, international management experience and field capacity support PCE's pipeline and HDD delivery.
                         </p>
-                    </div>
+                    </FadeInSlideUp>
                 </div>
 
                 {/* Clean Numbers Grid Layout */}
-                <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10">
+                <StaggerContainer className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10">
                     {stats.map((stat, index) => (
-                        <div 
-                            key={index} 
-                            className="flex flex-col items-start gap-3 pt-6 border-t border-white/15"
-                        >
+                        <StaggerItem key={index} className="flex flex-col items-start gap-3 pt-6 border-t border-white/15">
                             <Text 
                                 variant="display-lg" 
                                 className="!text-[36px] sm:!text-[44px] lg:!text-[52px] font-extrabold text-[var(--color-accent)] leading-none"
@@ -71,9 +69,9 @@ export const PeopleScale = () => {
                             <span className="text-sm sm:text-base text-white/85 font-medium leading-snug">
                                 {stat.label}
                             </span>
-                        </div>
+                        </StaggerItem>
                     ))}
-                </div>
+                </StaggerContainer>
 
             </div>
         </section>

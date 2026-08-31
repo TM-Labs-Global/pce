@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Text } from '@/shared/components/ui/text';
 import { CategoryPanel } from '@/shared/components/layout';
+import { FadeInSlideUp } from '@/shared/components/ui/fade-in-slide-up';
 
 interface EquipmentItem {
     id: string;
@@ -193,7 +194,7 @@ export const OurEquipments = () => {
         <section className="w-full bg-[var(--color-canvas)] section flex flex-col items-start gap-12 !px-0 md:!px-[var(--section-pad-x)]">
             
             {/* Header Block */}
-            <div className="w-full px-5 md:px-0 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-20 items-end">
+            <FadeInSlideUp className="w-full px-5 md:px-0 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-20 items-end">
                 {/* Left Column: Heading */}
                 <div className="lg:col-span-7 flex flex-col items-start">
                     {/* Tagline */}
@@ -216,7 +217,7 @@ export const OurEquipments = () => {
                         Successful HDD execution depends on more than rig capacity. It requires the right combination of drilling power, guidance, fluid management, bore-preparation tools and pipe-handling resources. PCE brings these systems together around the requirements of the crossing.
                     </Text>
                 </div>
-            </div>
+            </FadeInSlideUp>
 
             {/* Tab Bar */}
             <div className="w-full flex flex-row flex-nowrap overflow-x-auto gap-3 pb-3 px-5 md:px-0 md:flex-wrap md:overflow-visible [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">

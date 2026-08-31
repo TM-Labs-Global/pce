@@ -4,6 +4,7 @@ import React from 'react';
 import { Text } from '@/shared/components/ui/text';
 import Link from 'next/link';
 import { ArrowRight } from '@phosphor-icons/react';
+import { FadeInSlideUp } from '@/shared/components/ui/fade-in-slide-up';
 
 export const OurApproach = () => {
     return (
@@ -11,7 +12,7 @@ export const OurApproach = () => {
             <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-y-10 lg:gap-y-0 gap-x-12 lg:gap-x-20 items-center">
                 
                 {/* Left Column: Tagline, Headline, Body & CTA */}
-                <div className="lg:col-span-6 flex flex-col items-start gap-6">
+                <FadeInSlideUp className="lg:col-span-6 flex flex-col items-start gap-6">
                     {/* Tagline */}
                     <div className="flex items-center gap-2">
                         <span className="w-6 h-[3px] bg-[var(--color-accent)] inline-block" />
@@ -44,15 +45,15 @@ export const OurApproach = () => {
                             <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
                         </Link>
                     </div>
-                </div>
+                </FadeInSlideUp>
 
                 {/* Right Column: Image */}
-                <div className="lg:col-span-6 relative w-full h-[320px] sm:h-[400px] lg:h-[480px] rounded-xl overflow-hidden group">
+                <FadeInSlideUp delay={0.15} className="lg:col-span-6 relative w-full h-[320px] sm:h-[400px] lg:h-[480px] rounded-xl overflow-hidden group">
                     <div 
                         className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                         style={{ backgroundImage: 'url("/pictures/company/pipeline.jpg")' }}
                     />
-                </div>
+                </FadeInSlideUp>
 
             </div>
         </section>

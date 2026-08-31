@@ -4,6 +4,7 @@ import React from 'react';
 import { Text } from '@/shared/components/ui/text';
 import Link from 'next/link';
 import { ArrowRight } from '@phosphor-icons/react';
+import { FadeInSlideUp } from '@/shared/components/ui/fade-in-slide-up';
 
 export const Standards = () => {
     return (
@@ -11,7 +12,7 @@ export const Standards = () => {
             <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-y-10 lg:gap-y-0 gap-x-16 lg:gap-x-24 items-center">
                 
                 {/* 1. Heading Block */}
-                <div className="lg:col-span-6 lg:col-start-1 lg:row-start-1 order-1 flex flex-col items-start">
+                <FadeInSlideUp className="lg:col-span-6 lg:col-start-1 lg:row-start-1 order-1 flex flex-col items-start">
                     {/* Tagline */}
                     <div className="flex items-center gap-2 mb-6">
                         <span className="w-6 h-[3px] bg-[var(--color-accent)] inline-block" />
@@ -26,18 +27,18 @@ export const Standards = () => {
                             Delivery guided by safety, quality and responsibility.
                         </Text>
                     </div>
-                </div>
+                </FadeInSlideUp>
 
                 {/* 2. Image Column */}
-                <div className="lg:col-span-6 lg:col-start-7 lg:row-start-1 lg:row-span-2 order-2 lg:order-none relative w-full h-[320px] sm:h-[400px] lg:h-[520px] rounded-xl overflow-hidden group">
+                <FadeInSlideUp delay={0.1} className="lg:col-span-6 lg:col-start-7 lg:row-start-1 lg:row-span-2 order-2 lg:order-none relative w-full h-[320px] sm:h-[400px] lg:h-[520px] rounded-xl overflow-hidden group">
                     <div 
                         className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                         style={{ backgroundImage: 'url("/pictures/company/standards.jpg")' }}
                     />
-                </div>
+                </FadeInSlideUp>
 
                 {/* 3. Description & Certifications & CTA Block */}
-                <div className="lg:col-span-6 lg:col-start-1 lg:row-start-2 order-3 lg:order-none flex flex-col items-start gap-8 lg:mt-8">
+                <FadeInSlideUp delay={0.15} className="lg:col-span-6 lg:col-start-1 lg:row-start-2 order-3 lg:order-none flex flex-col items-start gap-8 lg:mt-8">
                     {/* Body Paragraphs */}
                     <div className="flex flex-col gap-6 max-w-[540px]">
                         <p className="!text-[var(--color-ink)] text-sm md:text-base leading-relaxed">
@@ -67,7 +68,7 @@ export const Standards = () => {
                         Explore Safety & Quality
                         <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
-                </div>
+                </FadeInSlideUp>
 
             </div>
         </section>

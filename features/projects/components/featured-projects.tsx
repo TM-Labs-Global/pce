@@ -2,9 +2,14 @@
 
 import React, { useState } from 'react';
 import { Text } from '@/shared/components/ui/text';
+import { FadeInSlideUp } from '@/shared/components/ui/fade-in-slide-up';
+
+import Link from 'next/link';
+import { PROJECTS_DATA } from '../data/projects-data';
 
 interface ProjectItem {
     id: string;
+    slug: string;
     tagline: string;
     title: string;
     description: string;
@@ -16,58 +21,65 @@ export const FeaturedProjects = () => {
     const allProjects: ProjectItem[] = [
         {
             id: "niger-river",
-            tagline: "1.565 km beneath the River Niger",
-            title: "AKK River Niger Crossing.",
-            description: "PCE completed the specialist HDD crossing for the 40-inch AKK gas pipeline beneath the River Niger through mixed sand, gravel and rock strata.",
-            image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80",
+            slug: "akk-river-niger",
+            tagline: PROJECTS_DATA["akk-river-niger"]?.tagline || '',
+            title: PROJECTS_DATA["akk-river-niger"]?.title || 'AKK River Niger Crossing.',
+            description: PROJECTS_DATA["akk-river-niger"]?.intro || '',
+            image: PROJECTS_DATA["akk-river-niger"]?.heroImage || '',
             scope: "nigeria"
         },
         {
             id: "escravos-crossing",
-            tagline: "2 km at 52 metres depth.",
-            title: "OB3 River Niger Crossing.",
-            description: "PCE executed the River Niger HDD crossing on the OB3 Gas Pipeline between Ndoni in Rivers State and Aboh in Delta State.",
-            image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80",
+            slug: "ob3-river-niger",
+            tagline: PROJECTS_DATA["ob3-river-niger"]?.tagline || '',
+            title: PROJECTS_DATA["ob3-river-niger"]?.title || 'OB3 River Niger Crossing.',
+            description: PROJECTS_DATA["ob3-river-niger"]?.intro || '',
+            image: PROJECTS_DATA["ob3-river-niger"]?.heroImage || '',
             scope: "nigeria"
         },
         {
             id: "chao-phraya",
-            tagline: "Thailand · Bang Pakong",
-            title: "Two major gas crossings.",
-            description: "Two steel gas-pipeline crossings through clay and sand.",
-            image: "https://images.unsplash.com/photo-1579684389782-64d84b5e901a?auto=format&fit=crop&q=80",
+            slug: "two-major-gas-crossings",
+            tagline: PROJECTS_DATA["two-major-gas-crossings"]?.tagline || '',
+            title: PROJECTS_DATA["two-major-gas-crossings"]?.title || 'Two major gas crossings.',
+            description: PROJECTS_DATA["two-major-gas-crossings"]?.intro || '',
+            image: PROJECTS_DATA["two-major-gas-crossings"]?.heroImage || '',
             scope: "international"
         },
         {
             id: "imiringi-creek",
-            tagline: "Guangdong, China",
-            title: "Five parallel offshore crossings.",
-            description: "Five parallel HDD crossings for steel gas pipelines through clay, sand and rock.",
-            image: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&q=80",
+            slug: "five-parallel-crossings",
+            tagline: PROJECTS_DATA["five-parallel-crossings"]?.tagline || '',
+            title: PROJECTS_DATA["five-parallel-crossings"]?.title || 'Five parallel offshore crossings.',
+            description: PROJECTS_DATA["five-parallel-crossings"]?.intro || '',
+            image: PROJECTS_DATA["five-parallel-crossings"]?.heroImage || '',
             scope: "international"
         },
         {
             id: "yangtze-river",
-            tagline: "Raoyang River, China",
-            title: "2,293 metres across the river.",
-            description: "A large-diameter gas-pipeline crossing through sand and gravel strata.",
-            image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80",
+            slug: "raoyang-river-crossing",
+            tagline: PROJECTS_DATA["raoyang-river-crossing"]?.tagline || '',
+            title: PROJECTS_DATA["raoyang-river-crossing"]?.title || '2,293 metres across the river.',
+            description: PROJECTS_DATA["raoyang-river-crossing"]?.intro || '',
+            image: PROJECTS_DATA["raoyang-river-crossing"]?.heroImage || '',
             scope: "international"
         },
         {
             id: "ajaokuta-crossing",
-            tagline: "Zhanjiang, China",
-            title: "4,060 metres through gravel and sand.",
-            description: "A long-distance intersecting HDD crossing executed using 600-ton and 500-ton rigs.",
-            image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80",
+            slug: "zhanjiang-crossing",
+            tagline: PROJECTS_DATA["zhanjiang-crossing"]?.tagline || '',
+            title: PROJECTS_DATA["zhanjiang-crossing"]?.title || '4,060 metres through gravel and sand.',
+            description: PROJECTS_DATA["zhanjiang-crossing"]?.intro || '',
+            image: PROJECTS_DATA["zhanjiang-crossing"]?.heroImage || '',
             scope: "international"
         },
         {
             id: "bonny-island",
-            tagline: "Thailand · SRB–NBPT Link Line",
-            title: "52 km of pipeline EPC.",
-            description: "Pipeline EPC from Saraburi to Ang Thong Province, including extensive continuous HDD.",
-            image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&q=80",
+            slug: "pipeline-epc-thailand",
+            tagline: PROJECTS_DATA["pipeline-epc-thailand"]?.tagline || '',
+            title: PROJECTS_DATA["pipeline-epc-thailand"]?.title || '52 km of pipeline EPC.',
+            description: PROJECTS_DATA["pipeline-epc-thailand"]?.intro || '',
+            image: PROJECTS_DATA["pipeline-epc-thailand"]?.heroImage || '',
             scope: "international"
         }
     ];
@@ -203,28 +215,33 @@ export const FeaturedProjects = () => {
                         }
 
                         return (
-                            <div key={item.id} className={`w-full flex flex-col items-start gap-5 ${colClass}`}>
-                                {/* Image Frame */}
-                                <div className={`w-full ${imgAspect} relative rounded-xl overflow-hidden bg-black/5 group cursor-pointer`}>
-                                    <div 
-                                        className="absolute inset-0 bg-cover bg-center transition-all duration-[800ms] ease-out group-hover:scale-102 filter grayscale hover:grayscale-0"
-                                        style={{ backgroundImage: `url("${item.image}")` }}
-                                    />
-                                </div>
-                                
-                                {/* Info block underneath */}
-                                <div className="flex flex-col items-start gap-2 text-left max-w-[540px]">
-                                    <span className="text-[14px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary)]">
-                                        {item.tagline}
-                                    </span>
-                                    <h4 className="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] leading-snug">
-                                        {item.title}
-                                    </h4>
-                                    <p className="text-sm text-[var(--color-ink-muted-48)] leading-relaxed">
-                                        {item.description}
-                                    </p>
-                                </div>
-                            </div>
+                            <FadeInSlideUp key={item.id} className={`w-full ${colClass}`}>
+                                <Link 
+                                    href={`/projects/${item.slug}`}
+                                    className="w-full flex flex-col items-start gap-5 no-underline group"
+                                >
+                                    {/* Image Frame */}
+                                    <div className={`w-full ${imgAspect} relative rounded-xl overflow-hidden bg-black/5 cursor-pointer`}>
+                                        <div 
+                                            className="absolute inset-0 bg-cover bg-center transition-all duration-[800ms] ease-out group-hover:scale-102 filter grayscale group-hover:grayscale-0"
+                                            style={{ backgroundImage: `url("${item.image}")` }}
+                                        />
+                                    </div>
+                                    
+                                    {/* Info block underneath */}
+                                    <div className="flex flex-col items-start gap-2 text-left max-w-[540px]">
+                                        <span className="text-[14px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary)] group-hover:text-[var(--color-accent)] transition-colors">
+                                            {item.tagline}
+                                        </span>
+                                        <h4 className="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors leading-snug">
+                                            {item.title}
+                                        </h4>
+                                        <p className="text-sm text-[var(--color-ink-muted-48)] leading-relaxed">
+                                            {item.description}
+                                        </p>
+                                    </div>
+                                </Link>
+                            </FadeInSlideUp>
                         );
                     })}
                 </div>

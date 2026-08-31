@@ -4,6 +4,7 @@ import React from 'react';
 import { Text } from '@/shared/components/ui/text';
 import Link from 'next/link';
 import { ArrowRight } from '@phosphor-icons/react';
+import { FadeInSlideUp, StaggerContainer, StaggerItem } from '@/shared/components/ui/fade-in-slide-up';
 
 export const OverviewCapabilities = () => {
     return (
@@ -12,16 +13,16 @@ export const OverviewCapabilities = () => {
             {/* Header Block */}
             <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-20 items-end">
                 {/* Left Column: Heading */}
-                <div className="lg:col-span-7 flex flex-col items-start">
+                <FadeInSlideUp className="lg:col-span-7 flex flex-col items-start">
                     <div className="max-w-[700px]">
                         <Text variant="display-lg" as="h2" intent="default" className="!font-extrabold leading-tight !text-[var(--color-ink)]">
                             Local delivery capability. Specialist international experience.
                         </Text>
                     </div>
-                </div>
+                </FadeInSlideUp>
 
                 {/* Right Column: Narrative & Button */}
-                <div className="lg:col-span-5 flex flex-col items-start gap-6">
+                <FadeInSlideUp delay={0.1} className="lg:col-span-5 flex flex-col items-start gap-6">
                     <Text variant="body" intent="default" className="text-[var(--color-ink-muted-48)] leading-relaxed lg:max-w-[460px] text-base md:text-lg">
                         PCE Nigeria works in consortium with Lantic on specialist HDD and pipeline delivery, bringing together local operating knowledge, engineering expertise, equipment resources and international project experience.
                     </Text>
@@ -32,21 +33,19 @@ export const OverviewCapabilities = () => {
                         See How We Work
                         <ArrowRight weight="bold" />
                     </Link>
-                </div>
+                </FadeInSlideUp>
             </div>
 
             {/* Bento Grid of Cards */}
-            <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6">
+            <StaggerContainer className="w-full grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6">
                 
-                {/* Card 1: Wide (lg:col-span-7) */}
-                <div className="lg:col-span-7 relative h-[320px] sm:h-[400px] rounded-xl overflow-hidden group border border-black/5 cursor-pointer">
+                {/* Card 1: Wide */}
+                <StaggerItem className="lg:col-span-7 relative h-[320px] sm:h-[400px] rounded-xl overflow-hidden group border border-black/5 cursor-pointer">
                     <div 
                         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                         style={{ backgroundImage: 'url("/pictures/company/nigerian-eng.jpeg")' }}
                     />
-                    {/* Dark legibility gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
-                    {/* Text content on card */}
                     <div className="absolute bottom-8 left-8 right-8 z-10 flex flex-col gap-2 text-white">
                         <h3 className="!text-[28px] font-bold leading-tight !text-white">
                             Local Operating Knowledge
@@ -55,10 +54,10 @@ export const OverviewCapabilities = () => {
                             Project experience and field resources supporting execution in Nigeria.
                         </p>
                     </div>
-                </div>
+                </StaggerItem>
 
-                {/* Card 2: Narrow (lg:col-span-5) */}
-                <div className="lg:col-span-5 relative h-[320px] sm:h-[400px] rounded-xl overflow-hidden group border border-black/5 cursor-pointer">
+                {/* Card 2: Narrow */}
+                <StaggerItem className="lg:col-span-5 relative h-[320px] sm:h-[400px] rounded-xl overflow-hidden group border border-black/5 cursor-pointer">
                     <div 
                         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                         style={{ backgroundImage: 'url("/pictures/company/specialist-enginering.jpg")' }}
@@ -72,10 +71,10 @@ export const OverviewCapabilities = () => {
                             Precision directional drilling for complex riverbed, roadway, and shoreline crossings.
                         </p>
                     </div>
-                </div>
+                </StaggerItem>
 
-                {/* Card 3: Narrow (lg:col-span-5) */}
-                <div className="lg:col-span-5 relative h-[320px] sm:h-[400px] rounded-xl overflow-hidden group border border-black/5 cursor-pointer">
+                {/* Card 3: Narrow */}
+                <StaggerItem className="lg:col-span-5 relative h-[320px] sm:h-[400px] rounded-xl overflow-hidden group border border-black/5 cursor-pointer">
                     <div 
                         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                         style={{ backgroundImage: 'url("/pictures/company/pipeline.jpg")' }}
@@ -89,10 +88,10 @@ export const OverviewCapabilities = () => {
                             End-to-end execution covering engineering, pipeline fabrication, pre-commissioning, and testing.
                         </p>
                     </div>
-                </div>
+                </StaggerItem>
 
-                {/* Card 4: Wide (lg:col-span-7) */}
-                <div className="lg:col-span-7 relative h-[320px] sm:h-[400px] rounded-xl overflow-hidden group border border-black/5 cursor-pointer">
+                {/* Card 4: Wide */}
+                <StaggerItem className="lg:col-span-7 relative h-[320px] sm:h-[400px] rounded-xl overflow-hidden group border border-black/5 cursor-pointer">
                     <div 
                         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                         style={{ backgroundImage: 'url("/pictures/company/global-resources.jpg")' }}
@@ -106,9 +105,9 @@ export const OverviewCapabilities = () => {
                             Combined equipment fleets, materials logistics, and international project support through the Lantic partnership.
                         </p>
                     </div>
-                </div>
+                </StaggerItem>
 
-            </div>
+            </StaggerContainer>
 
         </section>
     );

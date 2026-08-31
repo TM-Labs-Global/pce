@@ -131,26 +131,13 @@ export const SiteHeader = () => {
 
                                     {/* Right Image Showcase Panel */}
                                     <div className="col-span-6">
-                                        <Link
-                                            href="/equipment-technology"
-                                            onClick={() => setIsCompanyMenuOpen(false)}
-                                            className="relative block h-full min-h-[220px] rounded-xl overflow-hidden group no-underline shadow-sm"
-                                        >
+                                        <div className="relative block h-full min-h-[220px] rounded-xl overflow-hidden shadow-sm">
                                             <img
-                                                src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80"
-                                                alt="PCE Equipment & Rigs"
-                                                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                src="/pictures/company/company-hero.jpg"
+                                                alt="PCE Corporate & Equipment Operations"
+                                                className="w-full h-full object-cover"
                                             />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-[#052237]/90 via-[#052237]/40 to-transparent" />
-                                            <div className="absolute bottom-4 left-4 right-4 text-white">
-                                                <span className="inline-block px-2.5 py-0.5 rounded-full bg-[var(--color-accent)] text-[#052237] text-[10px] font-black uppercase tracking-wider mb-1.5">
-                                                    Featured Fleet
-                                                </span>
-                                                <h4 className="text-sm font-extrabold text-white leading-tight">
-                                                    250-Ton HDD Rig Capabilities
-                                                </h4>
-                                            </div>
-                                        </Link>
+                                        </div>
                                     </div>
                                 </div>
                             )}

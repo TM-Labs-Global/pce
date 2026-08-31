@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Text } from '@/shared/components/ui/text';
+import { FadeInSlideUp, StaggerContainer, StaggerItem } from '@/shared/components/ui/fade-in-slide-up';
 
 interface BentoCard {
     number: string;
@@ -54,7 +55,7 @@ export const HowWeWork = () => {
         <section className="w-full bg-[var(--color-surface-tile-3)] section flex flex-col items-start gap-20 border-t border-[var(--color-surface-tile-3)]">
             
             {/* Header Block */}
-            <div className="w-full flex flex-col items-start">
+            <FadeInSlideUp className="w-full flex flex-col items-start">
                 {/* Tagline */}
                 <div className="flex items-center justify-center gap-2 mb-6">
                     <span className="w-6 h-[3px] bg-[var(--color-accent)] inline-block" />
@@ -69,44 +70,42 @@ export const HowWeWork = () => {
                         A clear path from <span className="text-[var(--color-accent)]">assessment to commissioning.</span>
                     </Text>
                 </div>
-            </div>
+            </FadeInSlideUp>
 
-            {/* Bento Grid with Custom Column Track Widths */}
-            <div className="w-full grid grid-cols-1 lg:grid-cols-[1fr_0.6fr_1fr] gap-6 auto-rows-auto">
+            {/* Bento Grid */}
+            <StaggerContainer className="w-full grid grid-cols-1 lg:grid-cols-[1fr_0.6fr_1fr] gap-6 auto-rows-auto">
                 {cardsList.map((card, index) => (
-                    <div 
-                        key={index} 
-                        className={`relative overflow-hidden rounded-xl flex flex-col justify-end p-8 group border border-white/5 transition-all duration-300 cursor-pointer lg:p-10 ${
-                            card.className
-                        }`}
-                    >
-                        {/* Background Image */}
+                    <StaggerItem key={index} className={card.className}>
                         <div 
-                            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-103"
-                            style={{ backgroundImage: `url("${card.image}")` }}
-                        />
-                        {/* Gradient Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/10 pointer-events-none" />
+                            className={`relative overflow-hidden rounded-xl flex flex-col justify-end p-8 group border border-white/5 transition-all duration-300 cursor-pointer lg:p-10 h-full`}
+                        >
+                            {/* Background Image */}
+                            <div 
+                                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-103"
+                                style={{ backgroundImage: `url("${card.image}")` }}
+                            />
+                            {/* Gradient Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/10 pointer-events-none" />
 
-                        {/* Content Container */}
-                        <div className="relative z-10 flex flex-col items-start gap-3">
-                            {/* Step Number Text (No background container) */}
-                            <span className="text-xs font-extrabold uppercase tracking-widest text-[var(--color-accent)]">
-                                Step {card.number}
-                            </span>
+                            {/* Content Container */}
+                            <div className="relative z-10 flex flex-col items-start gap-3">
+                                <span className="text-xs font-extrabold uppercase tracking-widest text-[var(--color-accent)]">
+                                    Step {card.number}
+                                </span>
 
-                            <div className="flex flex-col gap-2">
-                                <h3 className="!text-[24px] font-bold text-white leading-tight">
-                                    {card.title}
-                                </h3>
-                                <p className="text-sm md:text-base leading-relaxed !text-white">
-                                    {card.description}
-                                </p>
+                                <div className="flex flex-col gap-2">
+                                    <h3 className="!text-[24px] font-bold text-white leading-tight">
+                                        {card.title}
+                                    </h3>
+                                    <p className="text-sm md:text-base leading-relaxed !text-white">
+                                        {card.description}
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </StaggerItem>
                 ))}
-            </div>
+            </StaggerContainer>
 
         </section>
     );

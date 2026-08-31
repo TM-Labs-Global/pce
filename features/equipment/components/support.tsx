@@ -4,6 +4,7 @@ import React from 'react';
 import { Text } from '@/shared/components/ui/text';
 import Link from 'next/link';
 import { ArrowRight } from '@phosphor-icons/react';
+import { FadeInSlideUp } from '@/shared/components/ui/fade-in-slide-up';
 
 export const Support = () => {
     const images = [
@@ -34,7 +35,7 @@ export const Support = () => {
         <section className="w-full bg-[var(--color-canvas)] section flex flex-col items-start gap-12 border-t border-[var(--color-hairline)]">
             
             {/* Mobile-Only Header Block */}
-            <div className="block lg:hidden w-full">
+            <FadeInSlideUp className="block lg:hidden w-full">
                 {/* Tagline */}
                 <div className="flex items-center gap-2 mb-6">
                     <span className="w-6 h-[3px] bg-[var(--color-accent)] inline-block" />
@@ -49,12 +50,12 @@ export const Support = () => {
                         Equipment backed by HDD expertise.
                     </Text>
                 </div>
-            </div>
+            </FadeInSlideUp>
 
             <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-y-10 lg:gap-y-0 gap-x-16 lg:gap-x-24 items-center">
                 
                 {/* Left Column: Dynamic Looping Slideshow */}
-                <div className="lg:col-span-6 relative w-full h-[320px] sm:h-[400px] lg:h-[520px] rounded-xl overflow-hidden group border border-black/5 bg-black/5">
+                <FadeInSlideUp className="lg:col-span-6 relative w-full h-[320px] sm:h-[400px] lg:h-[520px] rounded-xl overflow-hidden group border border-black/5 bg-black/5">
                     {images.map((imgUrl, index) => (
                         <div 
                             key={imgUrl}
@@ -66,10 +67,10 @@ export const Support = () => {
                             style={{ backgroundImage: `url("${imgUrl}")` }}
                         />
                     ))}
-                </div>
+                </FadeInSlideUp>
 
                 {/* Right Column: Heading, Narrative, and Stats List */}
-                <div className="lg:col-span-6 flex flex-col justify-between h-full py-2">
+                <FadeInSlideUp delay={0.1} className="lg:col-span-6 flex flex-col justify-between h-full py-2">
                     {/* Header Group (Desktop Only) */}
                     <div className="hidden lg:flex flex-col items-start">
                         {/* Tagline */}
@@ -113,7 +114,7 @@ export const Support = () => {
                             ))}
                         </div>
                     </div>
-                </div>
+                </FadeInSlideUp>
 
             </div>
         </section>

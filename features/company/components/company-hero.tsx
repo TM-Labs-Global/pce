@@ -19,7 +19,7 @@ export const CompanyHero = () => {
             </div>
 
             {/* Content Container */}
-            <div className="relative z-[var(--z-elevate)] w-full px-[var(--section-pad-x)] py-25 flex flex-col items-start">
+            <div className="relative z-[var(--z-elevate)] w-full px-[var(--section-pad-x)] pt-32 pb-24 md:pb-[12vh] lg:pb-[15vh] flex flex-col items-start">
                 
                 {/* Headline */}
                 <div className="max-w-[1000px] mb-6">

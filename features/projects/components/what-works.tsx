@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text } from '@/shared/components/ui/text';
+import { FadeInSlideUp, StaggerContainer, StaggerItem } from '@/shared/components/ui/fade-in-slide-up';
 
 export const WhatWorks = () => {
     const stats = [
@@ -30,7 +31,7 @@ export const WhatWorks = () => {
             <div className="w-full flex flex-col items-start gap-20">
                 
                 {/* Heading Block */}
-                <div className="flex flex-col items-start">
+                <FadeInSlideUp className="flex flex-col items-start">
                     {/* Tagline */}
                     <div className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-3 mb-6">
                         <span className="w-6 h-[3px] bg-[var(--color-accent)] inline-block" />
@@ -45,13 +46,13 @@ export const WhatWorks = () => {
                             Different routes. The same engineering discipline.
                         </Text>
                     </div>
-                </div>
+                </FadeInSlideUp>
 
                 {/* Stats Cards Grid */}
-                <div className="w-full grid grid-cols-1 md:grid-cols-4 gap-6">
+                <StaggerContainer className="w-full grid grid-cols-1 md:grid-cols-4 gap-6">
                     {stats.map((stat, index) => (
-                        <div 
-                            key={index} 
+                        <StaggerItem
+                            key={index}
                             className="relative overflow-hidden rounded-lg min-h-[400px] flex flex-col justify-end p-8 group cursor-default"
                         >
                             {/* Background Image */}
@@ -71,9 +72,9 @@ export const WhatWorks = () => {
                                     {stat.label}
                                 </Text>
                             </div>
-                        </div>
+                        </StaggerItem>
                     ))}
-                </div>
+                </StaggerContainer>
 
             </div>
         </section>
