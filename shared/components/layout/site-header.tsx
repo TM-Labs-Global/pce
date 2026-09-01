@@ -7,13 +7,18 @@ import { usePathname } from 'next/navigation';
 export const SiteHeader = () => {
     const pathname = usePathname();
     const [isCompanyMenuOpen, setIsCompanyMenuOpen] = useState(false);
+    const [isProductsMenuOpen, setIsProductsMenuOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isMobileCompanyOpen, setIsMobileCompanyOpen] = useState(false);
+    const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false);
+    const [hoveredProductImage, setHoveredProductImage] = useState('/pictures/product-image/brsbent-sq-pack.png');
 
     const isCompanyActive =
         pathname === '/our-company' ||
         pathname === '/equipment-technology' ||
         pathname === '/safety-quality-responsibility';
+
+    const isProductsActive = pathname === '/products' || pathname.startsWith('/products/');
 
     const companySubLinks = [
         {
@@ -33,9 +38,50 @@ export const SiteHeader = () => {
         },
     ];
 
-    const mainNavLinks = [
+    const productSubLinks = [
+        {
+            title: 'BRSBENT SQ',
+            subtitle: 'Activated Bentonite',
+            href: '/products/brsbent-sq',
+            description: 'Premium bentonite for HDD, slurry TBM & deep foundations.',
+            image: '/pictures/product-image/brsbent-sq-pack.png',
+        },
+        {
+            title: 'BRSCMC',
+            subtitle: 'Carboxymethyl Cellulose',
+            href: '/products/brscmc',
+            description: 'High-purity fluid loss control & rheology modifier.',
+            image: '/pictures/product-image/brscmc-pack.png',
+        },
+        {
+            title: 'BRSMMH',
+            subtitle: 'Mixed Metal Hydroxide',
+            href: '/products/brsmmh',
+            description: 'Inorganic viscosifier for high yield point drilling fluids.',
+            image: '/pictures/product-image/brsmmh-pack.png',
+        },
+        {
+            title: 'BRSVR',
+            subtitle: 'Viscosifier & Rheology Control',
+            href: '/products/brsvr',
+            description: 'Polymeric rheology modifier for low-shear rate viscosity.',
+            image: '/pictures/product-image/brsvr.png',
+        },
+        {
+            title: 'BRSXTG',
+            subtitle: 'Xanthan Gum',
+            href: '/products/brsxtg',
+            description: 'High-molecular-weight biopolymer for shear-thinning viscosity.',
+            image: '/pictures/product-image/brsxtg-pack.png',
+        },
+    ];
+
+    const navLinksBeforeProducts = [
         { href: '/capabilities', label: 'Capabilities' },
         { href: '/projects', label: 'Projects' },
+    ];
+
+    const navLinksAfterProducts = [
         { href: '/news-insights', label: 'News & Insights' },
         { href: '/resources', label: 'Resources' },
     ];
@@ -102,7 +148,7 @@ export const SiteHeader = () => {
 
                             {/* Kalstore-style Mega Menu Dropdown */}
                             {isCompanyMenuOpen && (
-                                <div className="absolute left-0 top-[100%] w-[680px] bg-white rounded-2xl shadow-xl border border-black/10 p-6 grid grid-cols-12 gap-6 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                                <div className="absolute left-1/2 -translate-x-1/2 top-[100%] w-[680px] bg-white rounded-2xl shadow-xl border border-black/10 p-6 grid grid-cols-12 gap-6 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                                     {/* Left Links Column */}
                                     <div className="col-span-6 flex flex-col justify-between pr-2 border-r border-black/5">
                                         <div className="flex flex-col gap-4">
@@ -143,8 +189,126 @@ export const SiteHeader = () => {
                             )}
                         </div>
 
-                        {/* Standard Main Nav Links */}
-                        {mainNavLinks.map((link) => {
+                        {/* Links Before Products */}
+                        {navLinksBeforeProducts.map((link) => {
+                            const isActive = pathname === link.href;
+                            return (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    className={`text-sm font-semibold transition-colors no-underline ${
+                                        isActive
+                                            ? 'text-[var(--color-primary)] font-bold'
+                                            : 'text-[var(--color-ink-muted-48)] hover:text-[var(--color-primary)]'
+                                    }`}
+                                >
+                                    {link.label}
+                                </Link>
+                            );
+                        })}
+
+                        {/* Products Mega Menu Dropdown Trigger */}
+                        <div
+                            className="relative"
+                            onMouseEnter={() => setIsProductsMenuOpen(true)}
+                            onMouseLeave={() => setIsProductsMenuOpen(false)}
+                        >
+                            <button
+                                onClick={() => setIsProductsMenuOpen(!isProductsMenuOpen)}
+                                className={`flex items-center gap-1.5 text-sm font-semibold transition-colors py-7 no-underline ${
+                                    isProductsActive || isProductsMenuOpen
+                                        ? 'text-[var(--color-primary)] font-bold'
+                                        : 'text-[var(--color-ink-muted-48)] hover:text-[var(--color-primary)]'
+                                }`}
+                            >
+                                <span>Products</span>
+                                <svg
+                                    className={`w-4 h-4 transition-transform duration-200 ${
+                                        isProductsMenuOpen ? 'rotate-180 text-[var(--color-primary)]' : 'text-black/40'
+                                    }`}
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+
+                            {/* Products Mega Menu Dropdown */}
+                            {isProductsMenuOpen && (
+                                <div 
+                                    className="absolute left-1/2 -translate-x-1/2 top-[100%] bg-white rounded-2xl shadow-xl border border-black/10 p-6 z-50 animate-in fade-in slide-in-from-top-2 duration-300 w-[1000px] grid grid-cols-12 gap-6"
+                                >
+                                    {/* Far Left: Main Links */}
+                                    <div className="col-span-3 flex flex-col gap-4 pr-2 border-r border-black/5 overflow-hidden">
+                                        <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-accent)] px-2.5 whitespace-nowrap">
+                                            Drilling Chemicals
+                                        </span>
+                                        <div className="flex flex-col gap-2">
+                                            <Link
+                                                href="/products"
+                                                onClick={() => setIsProductsMenuOpen(false)}
+                                                className="group p-3 rounded-xl bg-[#052237] text-white hover:bg-[var(--color-primary)] transition-all no-underline block mb-1"
+                                            >
+                                                <div className="text-base font-extrabold text-white mb-1 whitespace-nowrap">
+                                                    Products Overview
+                                                </div>
+                                                <div className="text-xs text-white/70 leading-normal line-clamp-1">
+                                                    Explore our catalog.
+                                                </div>
+                                            </Link>
+                                            <div className="w-full flex items-center justify-between p-3 rounded-xl bg-[#052237]/5 text-left">
+                                                <span className="text-base font-extrabold text-[#052237] whitespace-nowrap">Individual Products</span>
+                                                <svg
+                                                    className="w-4 h-4 text-[var(--color-primary)] shrink-0"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    viewBox="0 0 24 24"
+                                                >
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Middle: Products Grid */}
+                                    <div className="col-span-6 border-r border-black/5 pr-4">
+                                        <div className="grid grid-cols-3 gap-3">
+                                            {productSubLinks.map((product) => (
+                                                <Link
+                                                    key={product.href}
+                                                    href={product.href}
+                                                    onClick={() => setIsProductsMenuOpen(false)}
+                                                    onMouseEnter={() => setHoveredProductImage(product.image)}
+                                                    className="group p-3 rounded-xl hover:bg-[#052237]/5 transition-colors no-underline flex flex-col h-full"
+                                                >
+                                                    <div className="text-sm font-bold text-[#052237] group-hover:text-[var(--color-primary)] transition-colors mb-1">
+                                                        {product.title}
+                                                    </div>
+                                                    <div className="text-[10px] text-[var(--color-ink-muted-48)] leading-snug line-clamp-2">
+                                                        {product.description}
+                                                    </div>
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Far Right: Image Showcase Panel */}
+                                    <div className="col-span-3 relative">
+                                        <div className="absolute inset-0 rounded-xl overflow-hidden shadow-sm bg-black/5">
+                                            <img
+                                                src={hoveredProductImage}
+                                                alt="Featured Product"
+                                                className="w-full h-full object-cover transition-opacity duration-300"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Links After Products */}
+                        {navLinksAfterProducts.map((link) => {
                             const isActive = pathname === link.href;
                             return (
                                 <Link
@@ -241,9 +405,65 @@ export const SiteHeader = () => {
                             )}
                         </div>
 
-                        {/* Mobile Main Nav Links */}
+                        {/* Mobile Links Before Products */}
                         <div className="flex flex-col gap-3">
-                            {mainNavLinks.map((link) => (
+                            {navLinksBeforeProducts.map((link) => (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="text-lg font-bold text-[#052237] no-underline border-b border-black/5 pb-3"
+                                >
+                                    {link.label}
+                                </Link>
+                            ))}
+                        </div>
+
+                        {/* Mobile Products Dropdown Accordion */}
+                        <div className="border-b border-black/5 pb-3">
+                            <button
+                                onClick={() => setIsMobileProductsOpen(!isMobileProductsOpen)}
+                                className="w-full flex items-center justify-between text-lg font-bold text-[#052237] no-underline py-0.5"
+                            >
+                                <span>Products</span>
+                                <svg
+                                    className={`w-5 h-5 text-black/40 transition-transform duration-200 ${
+                                        isMobileProductsOpen ? 'rotate-180 text-[var(--color-primary)]' : ''
+                                    }`}
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+
+                            {isMobileProductsOpen && (
+                                <div className="flex flex-col gap-2 pt-3 pl-3 animate-in fade-in slide-in-from-top-1 duration-150">
+                                    <Link
+                                        href="/products"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="text-base font-bold text-[var(--color-primary)] hover:underline no-underline py-1.5"
+                                    >
+                                        All Products Overview →
+                                    </Link>
+                                    {productSubLinks.map((product) => (
+                                        <Link
+                                            key={product.href}
+                                            href={product.href}
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                            className="text-base font-semibold text-[#052237]/80 hover:text-[var(--color-primary)] no-underline py-1.5"
+                                        >
+                                            {product.title} <span className="text-xs text-[var(--color-ink-muted-48)]">({product.subtitle})</span>
+                                        </Link>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Mobile Links After Products */}
+                        <div className="flex flex-col gap-3">
+                            {navLinksAfterProducts.map((link) => (
                                 <Link
                                     key={link.href}
                                     href={link.href}

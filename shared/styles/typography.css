@@ -123,7 +123,7 @@ p {
   font-size: var(--text-body);
   line-height: 1.47;
   letter-spacing: var(--tracking-tightest);
-  color: var(--color-ink);
+  color: inherit;
 }
 
 /* ===== PCE Typography Utility Classes ===== */
