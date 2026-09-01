@@ -1,1 +1,2 @@
-export {};
+export * from './resources-hero';
+export * from './reports';
