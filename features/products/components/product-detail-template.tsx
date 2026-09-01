@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ProductDetail } from '../types';
 import { Text } from '@/shared/components/ui/text';
 
@@ -10,21 +11,18 @@ interface ProductDetailTemplateProps {
 }
 
 export const ProductDetailTemplate: React.FC<ProductDetailTemplateProps> = ({ product }) => {
-    const [openSdsSections, setOpenSdsSections] = useState<Record<number, boolean>>(() => {
-        const initialState: Record<number, boolean> = { 1: true };
+    const [openSdsSection, setOpenSdsSection] = useState<number | null>(() => {
+        let initial = 1;
         product.sdsSections?.forEach(sec => {
             if (sec.isDefaultOpen) {
-                initialState[sec.num] = true;
+                initial = sec.num;
             }
         });
-        return initialState;
+        return initial;
     });
 
     const toggleSdsSection = (num: number) => {
-        setOpenSdsSections(prev => ({
-            ...prev,
-            [num]: !prev[num]
-        }));
+        setOpenSdsSection(prev => (prev === num ? null : num));
     };
 
     return (
@@ -308,6 +306,64 @@ export const ProductDetailTemplate: React.FC<ProductDetailTemplateProps> = ({ pr
                             </div>
                         )}
 
+                        {/* GALLERY / BENTO GRID */}
+                        {product.galleryImages && product.galleryImages.length >= 3 && (
+                            <div className="flex flex-col gap-6 mt-12 mb-12">
+                                {product.galleryImages.length === 3 && (
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-[500px] md:h-[800px]">
+                                        <div className="h-full rounded-3xl overflow-hidden shadow-sm relative group bg-white/5 border border-white/10">
+                                            <Image src={product.galleryImages[0]} alt="Gallery image 1" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                                        </div>
+                                        <div className="grid grid-rows-2 gap-4 h-full">
+                                            <div className="h-full rounded-3xl overflow-hidden shadow-sm relative group bg-white/5 border border-white/10">
+                                                <Image src={product.galleryImages[1]} alt="Gallery image 2" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                                            </div>
+                                            <div className="h-full rounded-3xl overflow-hidden shadow-sm relative group bg-white/5 border border-white/10">
+                                                <Image src={product.galleryImages[2]} alt="Gallery image 3" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                                {product.galleryImages.length === 4 && (
+                                    <div className="grid grid-cols-1 md:grid-cols-5 gap-4 h-[600px] md:h-[900px]">
+                                        <div className="md:col-span-3 h-full rounded-3xl overflow-hidden shadow-sm relative group bg-white/5 border border-white/10">
+                                            <Image src={product.galleryImages[0]} alt="Gallery image 1" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                                        </div>
+                                        <div className="md:col-span-2 grid grid-rows-3 gap-4 h-full">
+                                            {product.galleryImages.slice(1, 4).map((img, idx) => (
+                                                <div key={idx} className="h-full rounded-3xl overflow-hidden shadow-sm relative group bg-white/5 border border-white/10">
+                                                    <Image src={img} alt={`Gallery image ${idx + 2}`} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                                {product.galleryImages.length >= 5 && (
+                                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 h-[700px] md:h-[900px]">
+                                        <div className="grid grid-rows-2 gap-4 h-full hidden md:grid">
+                                            <div className="h-full rounded-3xl overflow-hidden shadow-sm relative group bg-white/5 border border-white/10">
+                                                <Image src={product.galleryImages[0]} alt="Gallery image 1" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                                            </div>
+                                            <div className="h-full rounded-3xl overflow-hidden shadow-sm relative group bg-white/5 border border-white/10">
+                                                <Image src={product.galleryImages[1]} alt="Gallery image 2" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                                            </div>
+                                        </div>
+                                        <div className="md:col-span-2 h-full rounded-3xl overflow-hidden shadow-sm relative group bg-white/5 border border-white/10">
+                                            <Image src={product.galleryImages[2]} alt="Gallery image 3" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                                        </div>
+                                        <div className="grid grid-rows-2 gap-4 h-full hidden md:grid">
+                                            <div className="h-full rounded-3xl overflow-hidden shadow-sm relative group bg-white/5 border border-white/10">
+                                                <Image src={product.galleryImages[3]} alt="Gallery image 4" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                                            </div>
+                                            <div className="h-full rounded-3xl overflow-hidden shadow-sm relative group bg-white/5 border border-white/10">
+                                                <Image src={product.galleryImages[4]} alt="Gallery image 5" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+
                         {/* PACKAGING, STORAGE & TRANSPORT */}
                         {product.supplyDetails && product.supplyDetails.length > 0 && (
                             <div className="flex flex-col gap-10">
@@ -382,6 +438,21 @@ export const ProductDetailTemplate: React.FC<ProductDetailTemplateProps> = ({ pr
                                 </div>
                             ))}
                         </div>
+
+                        {/* {product.technicalImages && product.technicalImages.length > 0 && (
+                            <div className={`grid grid-cols-1 ${product.technicalImages.length > 1 ? 'md:grid-cols-2' : ''} gap-8 mt-12`}>
+                                {product.technicalImages.map((img, idx) => (
+                                    <div key={idx} className="relative h-[400px] w-full rounded-2xl overflow-hidden shadow-sm border border-black/10">
+                                        <Image 
+                                            src={img}
+                                            alt={`${product.title} technical illustration ${idx + 1}`}
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        )} */}
                     </div>
                 </section>
             )}
@@ -494,9 +565,9 @@ export const ProductDetailTemplate: React.FC<ProductDetailTemplateProps> = ({ pr
                                 </Text>
                             </div>
 
-                            <div className="flex flex-col gap-3 w-full max-w-4xl mx-auto">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mx-auto items-start">
                                 {product.sdsSections.map((sec) => {
-                                    const isOpen = !!openSdsSections[sec.num];
+                                    const isOpen = openSdsSection === sec.num;
                                     return (
                                         <div key={sec.num} className="border border-black/10 rounded-xl bg-white overflow-hidden shadow-sm">
                                             <button

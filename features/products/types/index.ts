@@ -26,6 +26,8 @@ export interface ProductItem {
 
 export interface ProductDetail extends ProductItem {
     heroImage?: string;
+    galleryImages?: string[];
+    technicalImages?: string[];
     intro?: string;
     sections?: ProductSection[];
     specs?: {
