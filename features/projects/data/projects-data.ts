@@ -165,7 +165,10 @@ export const PROJECTS_DATA: Record<string, ProjectDetail> = {
         date: "APRIL 2024",
         location: "Guangdong, China",
         category: "PARALLEL HDD",
-        heroImage: "/pictures/home-page/equipment.jpg",
+        heroImage: "/pictures/case-study/guangong-china/cover-photo.jpg",
+        bentoImages: [
+            "/pictures/case-study/guangong-china/cover-photo.jpg"
+        ],
         intro: "Five parallel HDD crossings for steel gas pipelines through clay, sand and rock.",
         specs: [
             { label: "Parallel Crossings", value: "5 × 2,100 m" },
