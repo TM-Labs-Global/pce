@@ -9,7 +9,7 @@ import { FadeInSlideUp } from '@/shared/components/ui/fade-in-slide-up';
 import { ArrowRight, CaretLeft, CaretRight, Pause, Play } from '@phosphor-icons/react';
 
 const HERO_SLIDES = [
-    // Batch 1: OB3 / AKK Completion & HDD Rigs (Land-to-Sea Crossing)
+    // Batch 1: OB3 / AKK Completion & HDD Rigs
     { 
         src: "/pictures/hero-slider/ob3-construction-team.jpg", 
         alt: "OB3 River Niger HDD Crossing Completion Team", 
@@ -31,21 +31,21 @@ const HERO_SLIDES = [
         batchLabel: "River Niger HDD Pullback" 
     },
 
-    // Batch 2: Drilling Fluid Scheme & Product Supply
+    // Batch 2: Drilling Fluid Scheme & Product Systems
     { 
-        src: "/pictures/product-image/bent/bent-stock.png", 
-        alt: "Drilling Fluid Bentonite Supply", 
-        batchLabel: "Drilling Fluid Scheme & Product Supply" 
+        src: "/pictures/hero-slider/drilling-rig-03.png", 
+        alt: "HDD Drilling Rig Operations & High-Pressure Mud Line", 
+        batchLabel: "Drilling Fluid Scheme & Mud Systems" 
     },
     { 
-        src: "/pictures/company/16-mud-tanks-exact.png", 
-        alt: "Mud Tanks and Fluid Systems", 
-        batchLabel: "Drilling Fluid Systems & Experiments" 
+        src: "/pictures/hero-slider/hdd-03.jpg", 
+        alt: "HDD Drilling Site Fluid Infrastructure & Recycling", 
+        batchLabel: "Drilling Fluid Infrastructure" 
     },
     { 
-        src: "/pictures/company/6-mud-pumps-exact.png", 
-        alt: "Mud Pump Operations", 
-        batchLabel: "Drilling Fluid Mud Pump Operations" 
+        src: "/pictures/hero-slider/drilling-rig-02.png", 
+        alt: "HDD Site Setup & Fluid Equipment Inventory", 
+        batchLabel: "Fluid Operations & Inventory" 
     },
 
     // Batch 3: 52km Pipeline EPC
@@ -55,8 +55,8 @@ const HERO_SLIDES = [
         batchLabel: "52km Pipeline EPC" 
     },
     { 
-        src: "/pictures/company/specialist-pipe-2.jpg", 
-        alt: "52km Pipeline EPC Heavy Pipe Operations", 
+        src: "/pictures/hero-slider/hdd-02.jpg", 
+        alt: "52km Pipeline EPC River Crossing Operations", 
         batchLabel: "52km Pipeline EPC" 
     },
 
