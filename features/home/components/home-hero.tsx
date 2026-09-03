@@ -32,15 +32,27 @@ export const HomeHero = () => {
                 {/* Headline */}
                 <FadeInSlideUp aboveFold delay={0} className="max-w-[1000px] mb-6">
                     <Text variant="hero" intent="inverse">
-                        Engineering Complex <span className="text-[var(--color-accent)]">Pipeline</span> Crossings.
+                        <span className="text-[var(--color-accent)]">HDD</span> Crossing. EPC for Pipeline.
                     </Text>
                 </FadeInSlideUp>
 
-                {/* Sub-headline */}
+                {/* Sub-headline: Capability list */}
                 <FadeInSlideUp aboveFold delay={0.15} className="max-w-[800px] mb-10">
-                    <Text variant="lead-airy" intent="inverse" className="!text-[16px] md:!text-[20px] !leading-relaxed">
-                        Integrated HDD, pipeline EPC and deep-pipeline location capability from assessment and engineering through construction and commissioning.
-                    </Text>
+                    <ul className="flex flex-col gap-2.5 !list-none !pl-0 !m-0">
+                        {[
+                            "Excellent HDD construction capability",
+                            "Professional HDD drilling fluid scheme design and product supply capability",
+                            "Comprehensive pipeline EPC construction capability",
+                            "Deep buried pipeline detection capability",
+                        ].map((item) => (
+                            <li key={item} className="flex items-start gap-3">
+                                <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] shrink-0" />
+                                <Text variant="lead-airy" intent="inverse" className="!text-[16px] md:!text-[20px] !leading-relaxed">
+                                    {item}
+                                </Text>
+                            </li>
+                        ))}
+                    </ul>
                 </FadeInSlideUp>
 
                 {/* Buttons Row */}

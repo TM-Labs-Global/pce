@@ -24,7 +24,7 @@ export const WhoWeAre = () => {
                     {/* Headline */}
                     <div className="max-w-[700px]">
                         <Text variant="display-lg" as="h2" intent="default" className="!font-extrabold leading-tight">
-                            Specialist capability for demanding pipeline work.
+                            Specialist capability for demanding pipeline HDD Crossing and EPC work.
                         </Text>
                     </div>
                 </FadeInSlideUp>

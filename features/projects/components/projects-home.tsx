@@ -1,15 +1,39 @@
+'use client';
+
 import React from 'react';
 import { Text } from '@/shared/components/ui/text';
 
+// Construction-only slideshow, opening on the HDD on-site drilling rig.
+const HERO_SLIDES = [
+    "/pictures/equipment/hero.jpg",
+    "/pictures/home-page/akk-river-crossing.jpg",
+    "/pictures/case-study/ob3/ob3-hero.jpg",
+    "/pictures/home-page/pipeline-drilling.jpg",
+];
+
 export const ProjectsHome = () => {
+    const [currentSlide, setCurrentSlide] = React.useState(0);
+
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+        }, 4000);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <section className="relative w-full min-h-screen flex items-end overflow-hidden bg-[var(--bg-tile-dark)]">
-            {/* Background Image / Video Placeholder */}
+            {/* Background Slideshow */}
             <div className="absolute inset-0 z-0">
-                <div
-                    className="absolute inset-0 w-full h-full bg-cover bg-center opacity-60"
-                    style={{ backgroundImage: 'url("/pictures/projects/project-hero.JPG")' }}
-                />
+                {HERO_SLIDES.map((src, index) => (
+                    <div
+                        key={src}
+                        className={`absolute inset-0 w-full h-full bg-cover bg-center opacity-60 transition-opacity duration-[2000ms] ease-in-out ${
+                            index === currentSlide ? 'opacity-60' : 'opacity-0'
+                        }`}
+                        style={{ backgroundImage: `url("${src}")` }}
+                    />
+                ))}
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-tile-dark)] via-[var(--bg-tile-dark)]/40 to-transparent" />
             </div>

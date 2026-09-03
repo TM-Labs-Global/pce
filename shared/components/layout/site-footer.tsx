@@ -118,12 +118,27 @@ export const SiteFooter = () => {
                         <p className="!text-[16px] font-bold uppercase tracking-wider !text-white m-0">
                             CONTACT
                         </p>
-                        <div className="flex flex-col gap-2.5 !text-[16px]">
-                            <a href="tel:+2347074126596" className="!text-white font-semibold hover:text-[var(--color-accent)] transition-colors no-underline">
-                                +234 707 412 6596
-                            </a>
-                            <a href="mailto:wanyang@pcenigeria.com" className="!text-[var(--color-accent)] font-medium hover:underline no-underline">
-                                wanyang@pcenigeria.com
+                        <div className="flex flex-col gap-3 !text-[16px]">
+                            <div className="flex flex-col gap-0.5">
+                                <span className="!text-white/60 text-xs uppercase tracking-wider font-semibold">Wan Yang</span>
+                                <a href="tel:+2347074126596" className="!text-white font-semibold hover:text-[var(--color-accent)] transition-colors no-underline">
+                                    +234 707 412 6596
+                                </a>
+                                <a href="mailto:wanyang@pcenigeria.com" className="!text-[var(--color-accent)] font-medium hover:underline no-underline">
+                                    wanyang@pcenigeria.com
+                                </a>
+                            </div>
+                            <div className="flex flex-col gap-0.5">
+                                <span className="!text-white/60 text-xs uppercase tracking-wider font-semibold">Xu Liangkui</span>
+                                <a href="tel:+2347013732816" className="!text-white font-semibold hover:text-[var(--color-accent)] transition-colors no-underline">
+                                    +234 701 373 2816
+                                </a>
+                                <a href="mailto:xuliangkui@pcenigeria.com" className="!text-[var(--color-accent)] font-medium hover:underline no-underline">
+                                    xuliangkui@pcenigeria.com
+                                </a>
+                            </div>
+                            <a href="mailto:info@pcenigeria.com" className="!text-[var(--color-accent)] font-medium hover:underline no-underline">
+                                info@pcenigeria.com
                             </a>
                         </div>
                     </div>

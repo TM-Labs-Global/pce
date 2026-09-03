@@ -37,8 +37,9 @@ export const CoreCapabilities = () => {
                         
                         {/* 1. Standalone Image Frame */}
                         <div 
+                            id={cap.id}
                             onClick={() => openCapability(cap.id)}
-                            className="w-full h-[280px] lg:h-[380px] relative overflow-hidden rounded-xl border border-black/5 group cursor-pointer"
+                            className="w-full h-[280px] lg:h-[380px] relative overflow-hidden rounded-xl border border-black/5 group cursor-pointer scroll-mt-28"
                         >
                             <div 
                                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-102"

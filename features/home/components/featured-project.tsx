@@ -14,7 +14,7 @@ export const FeaturedProject = () => {
                 <div className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-3 mb-6">
                     <span className="w-6 h-[3px] bg-[var(--color-accent)] inline-block" />
                     <span className="text-sm uppercase tracking-wider text-[var(--color-primary)] font-semibold">
-                        FEATURED PROJECT • AKK RIVER NIGER HDD CROSSING
+                        FEATURED PROJECTS • AKK &amp; OB3 RIVER NIGER HDD CROSSINGS
                     </span>
                 </div>
 
@@ -80,6 +80,85 @@ export const FeaturedProject = () => {
                     <StaggerItem className="flex flex-col items-start gap-1">
                         <Text variant="display-md" className="font-extrabold text-[var(--color-accent)] leading-none !text-[32px] md:!text-[40px]">
                             40 in
+                        </Text>
+                        <span className="text-base text-[var(--color-ink)] opacity-70">
+                            Pipeline diameter
+                        </span>
+                    </StaggerItem>
+
+                </StaggerContainer>
+
+            </div>
+
+            {/* Divider */}
+            <div className="w-full h-[1px] bg-[var(--color-hairline)]" />
+
+            {/* OB3 Featured Project */}
+            <FadeInSlideUp className="w-full flex flex-col items-start gap-4">
+                <span className="text-sm uppercase tracking-wider text-[var(--color-primary)] font-semibold">
+                    OB3 RIVER NIGER HDD CROSSING
+                </span>
+                <div className="max-w-[900px]">
+                    <Text variant="display-lg" as="h2" intent="default" className="!font-extrabold leading-tight">
+                        The OB3 Gas Pipeline. <span className="text-[var(--color-accent)]">2 km beneath the River Niger.</span>
+                    </Text>
+                </div>
+            </FadeInSlideUp>
+
+            {/* 1. Standalone Featured Image */}
+            <FadeInSlideUp delay={0.1} className="w-full h-[300px] md:h-[500px] relative overflow-hidden rounded-xl group border border-black/5">
+                <div 
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-102"
+                    style={{ backgroundImage: 'url("/pictures/case-study/ob3/ob3-hero.jpg")' }}
+                />
+                <div className="absolute inset-0 bg-black/5" />
+            </FadeInSlideUp>
+
+            {/* 2. Two-Column Details Layout */}
+            <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+
+                {/* Left Column: Narrative */}
+                <FadeInSlideUp delay={0.05} className="lg:col-span-7 flex flex-col items-start gap-8 max-w-[600px]">
+                    <div className="flex flex-col gap-4">
+                        <span className="text-base uppercase tracking-wider text-[var(--color-ink-muted-48)] font-semibold">
+                            A CRITICAL BOTTLENECK ON A 130 KM GAS PIPELINE.
+                        </span>
+                        <Text variant="lead-airy" intent="default" className="!text-[24px] leading-relaxed">
+                            <span className="font-extrabold">Completed April 2026</span>, PCE executed the River Niger HDD crossing on the OB3 Gas Pipeline between Ndoni, Rivers State, and Aboh, Delta State, through complex sand, gravel and rock strata.
+                        </Text>
+                    </div>
+
+                    {/* CTA Link */}
+                    <div className="flex items-center">
+                        <Link 
+                            href="/projects/ob3-river-niger" 
+                            className="inline-flex items-center gap-2 text-[var(--color-primary)] hover:text-[var(--color-accent)] transition-colors text-sm uppercase tracking-wider font-semibold group/link"
+                        >
+                            EXPLORE THE OB3 PROJECT 
+                            <ArrowRight weight="bold" className="text-[var(--color-accent)] group-hover/link:translate-x-1 transition-transform" />
+                        </Link>
+                    </div>
+                </FadeInSlideUp>
+
+                {/* Right Column: Stacked Stats */}
+                <StaggerContainer delayStart={0.1} className="lg:col-span-5 flex flex-col gap-6 justify-center">
+
+                    {/* Stat 1 */}
+                    <StaggerItem className="flex flex-col items-start gap-1">
+                        <Text variant="display-md" className="font-extrabold text-[var(--color-accent)] leading-none !text-[32px] md:!text-[40px]">
+                            2 km
+                        </Text>
+                        <span className="text-base text-[var(--color-ink)] opacity-70">
+                            HDD crossing
+                        </span>
+                    </StaggerItem>
+
+                    <div className="w-full h-[1px] bg-[var(--color-hairline)]" />
+
+                    {/* Stat 2 */}
+                    <StaggerItem className="flex flex-col items-start gap-1">
+                        <Text variant="display-md" className="font-extrabold text-[var(--color-accent)] leading-none !text-[32px] md:!text-[40px]">
+                            48 in
                         </Text>
                         <span className="text-base text-[var(--color-ink)] opacity-70">
                             Pipeline diameter
