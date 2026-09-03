@@ -11,23 +11,22 @@ const OVERVIEW_GALLERIES: GalleryCategory[] = [
         id: "teams",
         categoryTitle: "PCE Construction Teams & Field Engineers",
         items: [
+            { src: "/pictures/hero-slider/ob3-02-team.jpg", title: "OB3 HDD River Niger Crossing Construction Team" },
             { src: "/pictures/home-page/engineering-teams-new.jpg", title: "PCE Nigeria Engineering & Construction Specialist Team" },
             { src: "/pictures/hero-slider/construction-team-02.jpg", title: "PCE Field Construction Team on Site" },
-            { src: "/pictures/hero-slider/ob3-02-team.jpg", title: "OB3 HDD River Niger Crossing Construction Team" },
             { src: "/pictures/hero-slider/ob3-construction-team.jpg", title: "OB3 Project Construction Team Celebration" },
-            { src: "/pictures/company/specialist-enginering.jpg", title: "Specialist Pipeline Engineers & Rig Operations Crew" },
-            { src: "/pictures/company/nigerian-eng.jpeg", title: "Nigerian Field Operations & Technical Construction Crew" },
+            { src: "/pictures/hero-slider/team-in-suits.jpg", title: "PCE Executive & Management Team" },
         ]
     },
     {
         id: "rigs",
         categoryTitle: "Nigeria-based HDD Rigs & Pipe-Handling Capability",
         items: [
-            { src: "/pictures/hero-slider/drilling-rig-cover-photo.png", title: "1000t / 500t Heavy HDD Drilling Rig System" },
-            { src: "/pictures/hero-slider/drilling-rig-02.png", title: "Heavy Rig Positioning & Setup on Field Site" },
-            { src: "/pictures/home-page/pipe-handling-capacity.jpg", title: "500t Heavy Pipe-Handling Machine in Operation" },
-            { src: "/pictures/hero-slider/drilling-rig-03.png", title: "HDD Drilling Rig Operations & High-Pressure Mud Line" },
-            { src: "/pictures/company/specialist-pipe-2.jpg", title: "Heavy Pipe Pullback & River Niger Crossing Operation" },
+            { src: "/pictures/hero-slider/drilling-rig-cover-photo.jpg", title: "1200t / 500t Heavy HDD Drilling Rig System" },
+            { src: "/pictures/hero-slider/drilling-rig-03.jpg", title: "HDD Drilling Rig Operations & High-Pressure Mud Line" },
+            { src: "/pictures/hero-slider/side-bomb.jpg", title: "Heavy Pipe-Handling Machine & Boom Capability" },
+            { src: "/pictures/hero-slider/excavator.jpg", title: "Heavy Excavator Fleet & Pipeline Field Support" },
+            { src: "/pictures/hero-slider/air-compression.jpg", title: "High-Pressure Air Compressor System & Site Equipment" },
         ]
     },
     {
@@ -36,8 +35,8 @@ const OVERVIEW_GALLERIES: GalleryCategory[] = [
         items: [
             { src: "/pictures/equipment/main-equipments-cover-photo.jpg", title: "PCE Main Equipment & Materials Yard (Aerial View)" },
             { src: "/pictures/equipment/equipment-02.png", title: "Equipment & Materials Stock in Nigeria Yard" },
-            { src: "/pictures/equipment/equipment-03.png", title: "Heavy HDD Rig Components & Field Equipment" },
-            { src: "/pictures/equipment/equipment-04.png", title: "Field Heavy Machinery & Trenchless Construction Fleet" },
+            { src: "/pictures/product-image/CMC.jpg", title: "BRSCMC Drilling Fluid Product Supply" },
+            { src: "/pictures/product-image/Bentonite.png", title: "BRSBENT High-Yield Bentonite Product Supply" },
             { src: "/pictures/equipment/equipment-05.png", title: "Pipeline Supplies & Materials Stockpile" },
         ]
     }
@@ -50,13 +49,13 @@ export const Overview = () => {
         {
             number: "150+",
             label: "People across five specialist construction teams",
-            image: "/pictures/home-page/engineering-teams-new.jpg",
+            image: "/pictures/hero-slider/ob3-02-team.jpg",
             galleryIndex: 0
         },
         {
-            number: "1000t/500t/500t",
+            number: "1200t/500t/500t",
             label: "Nigeria-based HDD rig and pipe-handling capability",
-            image: "/pictures/hero-slider/drilling-rig-cover-photo.png",
+            image: "/pictures/hero-slider/drilling-rig-cover-photo.jpg",
             galleryIndex: 1
         },
         {

@@ -9,14 +9,13 @@ import { CaretLeft, CaretRight, Pause, Play } from '@phosphor-icons/react';
 
 // Construction-only slideshow, opening on the HDD on-site drilling rig.
 const PROJECTS_HERO_SLIDES = [
-    { src: "/pictures/hero-slider/drilling-rig-cover-photo.png", alt: "HDD On-Site Drilling Rig System" },
-    { src: "/pictures/hero-slider/drilling-rig-02.png", alt: "Heavy HDD Drilling Rig Positioning on Site" },
-    { src: "/pictures/hero-slider/drilling-rig-03.png", alt: "HDD Rig Operations & High-Pressure Mud Line" },
+    { src: "/pictures/hero-slider/drilling-rig-cover-photo.jpg", alt: "HDD On-Site Drilling Rig System" },
+    { src: "/pictures/hero-slider/highlight.jpg", alt: "Heavy HDD Drilling Rig Positioning on Site" },
+    { src: "/pictures/hero-slider/drilling-rig-03.jpg", alt: "HDD Rig Operations & High-Pressure Mud Line" },
     { src: "/pictures/hero-slider/ob3-construction-team.jpg", alt: "OB3 River Niger Crossing Field Site" },
     { src: "/pictures/hero-slider/akk-cover-photo.jpg", alt: "AKK Pipeline Crossing Construction Site" },
     { src: "/pictures/hero-slider/pipeline-epc-cover-photo.JPG", alt: "52km Pipeline EPC Construction Site" },
-    { src: "/pictures/hero-slider/hdd-04.jpg", alt: "HDD River Niger Crossing Pullback Operation" },
-    { src: "/pictures/hero-slider/hdd-02.jpg", alt: "HDD River Crossing Construction Site" },
+    { src: "/pictures/hero-slider/team-in-suits.jpg", alt: "PCE Executive & Management Team" },
 ];
 
 export const ProjectsHome = () => {

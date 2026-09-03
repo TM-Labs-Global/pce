@@ -23,19 +23,17 @@ const CAPABILITIES_LIST: CapabilityCard[] = [
         number: "01",
         title: "Horizontal Directional Drilling",
         description: "Specialist HDD engineering and construction for complex river, road, coastal and hard-ground crossings.",
-        image: "/pictures/hero-slider/drilling-rig-cover-photo.png",
+        image: "/pictures/hero-slider/drilling-rig-cover-photo.jpg",
         link: "/capabilities#hdd",
         gallery: {
             id: "hdd",
             categoryTitle: "Horizontal Directional Drilling (HDD) Capability",
             items: [
-                { src: "/pictures/hero-slider/drilling-rig-cover-photo.png", title: "500t / 1000t Heavy HDD Drilling Rig System" },
-                { src: "/pictures/hero-slider/drilling-rig-02.png", title: "HDD Rig Positioning & Setup on Field Site" },
-                { src: "/pictures/hero-slider/drilling-rig-03.png", title: "HDD Drilling Rig Operations & High-Pressure Mud Line" },
+                { src: "/pictures/hero-slider/drilling-rig-cover-photo.jpg", title: "1200t / 500t Heavy HDD Drilling Rig System" },
+                { src: "/pictures/hero-slider/drilling-rig-03.jpg", title: "HDD Drilling Rig Operations & High-Pressure Mud Line" },
                 { src: "/pictures/hero-slider/hdd-02.jpg", title: "River Niger HDD Crossing Site" },
-                { src: "/pictures/hero-slider/hdd-03.jpg", title: "HDD Drilling Site Infrastructure" },
-                { src: "/pictures/hero-slider/hdd-04.jpg", title: "HDD River Niger Crossing Pullback Operation" },
-                { src: "/pictures/hero-slider/hdd.jpg", title: "Trenchless HDD River Crossing" }
+                { src: "/pictures/hero-slider/offshore-hdd-project.jpg", title: "Offshore HDD Project Site Infrastructure" },
+                { src: "/pictures/hero-slider/team-in-suits.jpg", title: "PCE Executive & Management Team" }
             ]
         }
     },

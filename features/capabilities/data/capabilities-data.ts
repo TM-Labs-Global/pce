@@ -6,7 +6,7 @@ export const CAPABILITIES_CARDS: CapabilityCard[] = [
         number: "01",
         title: "Horizontal Directional Drilling",
         description: "Specialist HDD engineering and construction for river, road, coastal and complex-ground crossings where open-cut construction is impractical or disruptive.",
-        image: "/pictures/hero-slider/drilling-rig-cover-photo.png"
+        image: "/pictures/hero-slider/drilling-rig-cover-photo.jpg"
     },
     {
         id: "epc",

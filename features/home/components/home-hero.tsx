@@ -9,68 +9,16 @@ import { FadeInSlideUp } from '@/shared/components/ui/fade-in-slide-up';
 import { ArrowRight, CaretLeft, CaretRight, Pause, Play } from '@phosphor-icons/react';
 
 const HERO_SLIDES = [
-    // Batch 1: OB3 / AKK Completion & HDD Rigs
-    { 
-        src: "/pictures/hero-slider/ob3-construction-team.jpg", 
-        alt: "OB3 River Niger HDD Crossing Completion Team", 
-        batchLabel: "OB3 Project Completion" 
-    },
-    { 
-        src: "/pictures/hero-slider/akk-cover-photo.jpg", 
-        alt: "AKK Pipeline Crossing Project", 
-        batchLabel: "AKK Pipeline Completion" 
-    },
-    { 
-        src: "/pictures/hero-slider/drilling-rig-cover-photo.png", 
-        alt: "Heavy HDD Rig Land-to-Sea Crossing", 
-        batchLabel: "HDD Rig & Land-to-Sea Crossing" 
-    },
-    { 
-        src: "/pictures/hero-slider/hdd-04.jpg", 
-        alt: "HDD River Niger Crossing Pullback", 
-        batchLabel: "River Niger HDD Pullback" 
-    },
-
-    // Batch 2: Drilling Fluid Scheme & Product Systems
-    { 
-        src: "/pictures/hero-slider/drilling-rig-03.png", 
-        alt: "HDD Drilling Rig Operations & High-Pressure Mud Line", 
-        batchLabel: "Drilling Fluid Scheme & Mud Systems" 
-    },
-    { 
-        src: "/pictures/hero-slider/hdd-03.jpg", 
-        alt: "HDD Drilling Site Fluid Infrastructure & Recycling", 
-        batchLabel: "Drilling Fluid Infrastructure" 
-    },
-    { 
-        src: "/pictures/hero-slider/drilling-rig-02.png", 
-        alt: "HDD Site Setup & Fluid Equipment Inventory", 
-        batchLabel: "Fluid Operations & Inventory" 
-    },
-
-    // Batch 3: 52km Pipeline EPC
-    { 
-        src: "/pictures/hero-slider/pipeline-epc-cover-photo.JPG", 
-        alt: "52km Pipeline EPC Construction Site", 
-        batchLabel: "52km Pipeline EPC" 
-    },
-    { 
-        src: "/pictures/hero-slider/hdd-02.jpg", 
-        alt: "52km Pipeline EPC River Crossing Operations", 
-        batchLabel: "52km Pipeline EPC" 
-    },
-
-    // Batch 4: BPDS Location Survey
-    { 
-        src: "/pictures/hero-slider/bpds-cover-photo.png", 
-        alt: "New Pipeline Location Survey Technique - BPDS", 
-        batchLabel: "New Pipeline Location Survey Technique - BPDS" 
-    },
-    { 
-        src: "/pictures/hero-slider/bpds-02.png", 
-        alt: "BPDS 3D Pipeline Detection & Location", 
-        batchLabel: "New Pipeline Location Survey Technique - BPDS" 
-    },
+    { src: "/pictures/hero-slider/ob3-construction-team.jpg", alt: "OB3 River Niger HDD Crossing Completion Team" },
+    { src: "/pictures/hero-slider/akk-cover-photo.jpg", alt: "AKK Pipeline Crossing Project" },
+    { src: "/pictures/hero-slider/drilling-rig-cover-photo.jpg", alt: "Heavy HDD Rig Land-to-Sea Crossing" },
+    { src: "/pictures/hero-slider/drilling-rig-03.jpg", alt: "HDD Drilling Rig Operations & High-Pressure Mud Line" },
+    { src: "/pictures/hero-slider/offshore-hdd-project.jpg", alt: "Offshore HDD Project Operations" },
+    { src: "/pictures/hero-slider/highlight.jpg", alt: "HDD Site Setup & Fluid Equipment Inventory" },
+    { src: "/pictures/hero-slider/pipeline-epc-cover-photo.JPG", alt: "52km Pipeline EPC Construction Site" },
+    { src: "/pictures/hero-slider/ob3-cover-photo.jpg", alt: "OB3 River Niger Crossing Site" },
+    { src: "/pictures/hero-slider/on-river.jpg", alt: "Trenchless HDD River Crossing" },
+    { src: "/pictures/hero-slider/warehouse-story-yard.jpg", alt: "PCE Warehouse & Materials Yard" },
 ];
 
 export const HomeHero = () => {
@@ -176,12 +124,6 @@ export const HomeHero = () => {
 
                     {/* Slider Navigation & Counter Controls */}
                     <FadeInSlideUp aboveFold delay={0.4} className="flex flex-col items-start md:items-end gap-2">
-                        {/* Batch Category Tag */}
-                        <span className="inline-flex items-center gap-1.5 bg-black/50 backdrop-blur-md border border-white/15 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider text-[var(--color-accent)] uppercase">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] animate-pulse" />
-                            {activeSlide.batchLabel}
-                        </span>
-
                         <div className="flex items-center gap-3 bg-black/40 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-full">
                             <button
                                 onClick={togglePlay}
