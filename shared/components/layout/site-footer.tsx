@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export const SiteFooter = () => {
     return (
-        <footer className="w-full bg-[#052237] text-white pt-16 lg:pt-20 pb-12 px-[var(--section-pad-x)] border-t border-white/10">
+        <footer className="w-full bg-[#010e19] text-white pt-16 lg:pt-20 pb-12 px-[var(--section-pad-x)] border-t border-white/10">
             <div className="w-full flex flex-col gap-12 lg:gap-14">
                 
                 {/* 1. Top Section: Logo */}

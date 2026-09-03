@@ -12,12 +12,12 @@ export const WhatWorks = () => {
         {
             title: "Appropriate Equipment",
             label: "Rig, guidance, drilling-fluid and support systems configured around the technical demands of the work.",
-            image: "/pictures/equipment/hero.jpg"
+            image: "/pictures/equipment/main-equipments-cover-photo.jpg"
         },
         {
             title: "Coordinated Execution",
             label: "Engineering, equipment, field operations, safety and quality brought together around the crossing.",
-            image: "/pictures/capabilities/engineer-on-site.jpg"
+            image: "/pictures/hero-slider/ob3-construction-team.jpg"
         },
         {
             title: "Experience Carried Forward",

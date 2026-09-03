@@ -10,7 +10,7 @@ export const PROJECTS_DATA: Record<string, ProjectDetail> = {
         date: "AUGUST 2024",
         location: "Kogi State, Nigeria",
         category: "HDD RIVER CROSSING",
-        heroImage: "/pictures/home-page/akk-river-crossing.jpg",
+        heroImage: "/pictures/case-study/akk/akk-bento-1.jpg",
         bentoImages: [
             "/pictures/case-study/akk/akk-bento-1.jpg",
             "/pictures/case-study/akk/akk-bento-2.jpg",
@@ -76,7 +76,7 @@ export const PROJECTS_DATA: Record<string, ProjectDetail> = {
         date: "APRIL 2026",
         location: "Ndoni, Rivers State / Aboh, Delta State, Nigeria",
         category: "HDD RIVER CROSSING",
-        heroImage: "/pictures/case-study/ob3/ob3-hero.jpg",
+        heroImage: "/pictures/case-study/ob3/ob3-bento-1.jpg",
         bentoImages: [
             "/pictures/case-study/ob3/ob3-bento-1.jpg",
             "/pictures/case-study/ob3/ob3-bento-2.jpg",
@@ -182,7 +182,13 @@ export const PROJECTS_DATA: Record<string, ProjectDetail> = {
         date: "NOVEMBER 2022",
         location: "Raoyang River, China",
         category: "LARGE DIAMETER HDD",
-        heroImage: "/pictures/company/specialist-pipe-2.jpg",
+        heroImage: "/pictures/case-study/raoyang-river/cover-photo.jpg",
+        bentoImages: [
+            "/pictures/case-study/raoyang-river/cover-photo.jpg",
+            "/pictures/case-study/raoyang-river/raoyang-river-china-02.jpg",
+            "/pictures/case-study/raoyang-river/raoyang-river-china-03.jpg",
+            "/pictures/case-study/raoyang-river/raoyang-river-china-04.jpg"
+        ],
         intro: "A large-diameter gas-pipeline crossing through sand and gravel strata.",
         specs: [
             { label: "Crossing Length", value: "2,293 m" },
@@ -200,7 +206,13 @@ export const PROJECTS_DATA: Record<string, ProjectDetail> = {
         date: "2019",
         location: "Zhanjiang, China",
         category: "INTERSECTING HDD",
-        heroImage: "/pictures/company/specialist-pipe.jpg",
+        heroImage: "/pictures/case-study/zhanjiang-offshore/cover-photo.jpg",
+        bentoImages: [
+            "/pictures/case-study/zhanjiang-offshore/cover-photo.jpg",
+            "/pictures/case-study/zhanjiang-offshore/02.jpg",
+            "/pictures/case-study/zhanjiang-offshore/03.jpg",
+            "/pictures/case-study/zhanjiang-offshore/04.jpg"
+        ],
         intro: "A long-distance intersecting HDD crossing executed using 600-ton and 500-ton rigs.",
         specs: [
             { label: "Crossing Length", value: "4,060 m" },

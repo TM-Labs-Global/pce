@@ -6,28 +6,28 @@ export const CAPABILITIES_CARDS: CapabilityCard[] = [
         number: "01",
         title: "Horizontal Directional Drilling",
         description: "Specialist HDD engineering and construction for river, road, coastal and complex-ground crossings where open-cut construction is impractical or disruptive.",
-        image: "/pictures/home-page/horizontal-drilling-new.jpg"
+        image: "/pictures/hero-slider/drilling-rig-cover-photo.png"
     },
     {
         id: "epc",
         number: "02",
         title: "Pipeline EPC",
         description: "Engineering, procurement and construction for pipeline projects, combining open-cut construction, HDD and bored crossings with welding, NDT, hydrotesting, coating and pre-commissioning.",
-        image: "/pictures/home-page/pipeline-drilling.jpg"
+        image: "/pictures/hero-slider/pipeline-epc-cover-photo.JPG"
     },
     {
         id: "bpds",
         number: "03",
         title: "BPDS Pipeline Location",
         description: "Three-dimensional location and depth measurement for deeply buried steel pipelines, including beneath rivers and in other complex detection environments.",
-        image: "/pictures/home-page/pipeline-new.jpg"
+        image: "/pictures/hero-slider/bpds-cover-photo.png"
     },
     {
         id: "support",
         number: "04",
         title: "Equipment & Technical Support",
         description: "HDD rigs, pumps, recycling systems, drilling tools, specialist materials and technical support for demanding crossing requirements.",
-        image: "/pictures/home-page/equipment.jpg"
+        image: "/pictures/equipment/main-equipments-cover-photo.jpg"
     }
 ];
 
