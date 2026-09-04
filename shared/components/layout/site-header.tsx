@@ -65,7 +65,7 @@ export const SiteHeader = () => {
             subtitle: 'Viscosifier & Rheology Control',
             href: '/products/brsvr',
             description: 'Polymeric rheology modifier for low-shear rate viscosity.',
-            image: '/pictures/product-image/brsvr.png',
+            image: '/pictures/product-image/brsvr-pack.png',
         },
         {
             title: 'BRSXTG',
