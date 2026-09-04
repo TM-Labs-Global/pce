@@ -14,7 +14,7 @@ interface ProjectItem {
     title: string;
     description: string;
     image: string;
-    scope: 'nigeria' | 'international';
+    scope: 'nigeria' | 'thailand' | 'china' | 'bpds';
 }
 
 export const FeaturedProjects = () => {
@@ -44,7 +44,7 @@ export const FeaturedProjects = () => {
             title: PROJECTS_DATA["two-major-gas-crossings"]?.title || 'Two major gas crossings.',
             description: PROJECTS_DATA["two-major-gas-crossings"]?.intro || '',
             image: PROJECTS_DATA["two-major-gas-crossings"]?.heroImage || '',
-            scope: "international"
+            scope: "thailand"
         },
         {
             id: "imiringi-creek",
@@ -53,7 +53,7 @@ export const FeaturedProjects = () => {
             title: PROJECTS_DATA["five-parallel-crossings"]?.title || 'Five parallel offshore crossings.',
             description: PROJECTS_DATA["five-parallel-crossings"]?.intro || '',
             image: PROJECTS_DATA["five-parallel-crossings"]?.heroImage || '',
-            scope: "international"
+            scope: "china"
         },
         {
             id: "yangtze-river",
@@ -62,7 +62,7 @@ export const FeaturedProjects = () => {
             title: PROJECTS_DATA["raoyang-river-crossing"]?.title || '2,293 metres across the river.',
             description: PROJECTS_DATA["raoyang-river-crossing"]?.intro || '',
             image: PROJECTS_DATA["raoyang-river-crossing"]?.heroImage || '',
-            scope: "international"
+            scope: "china"
         },
         {
             id: "ajaokuta-crossing",
@@ -71,7 +71,7 @@ export const FeaturedProjects = () => {
             title: PROJECTS_DATA["zhanjiang-crossing"]?.title || '4,060 metres through gravel and sand.',
             description: PROJECTS_DATA["zhanjiang-crossing"]?.intro || '',
             image: PROJECTS_DATA["zhanjiang-crossing"]?.heroImage || '',
-            scope: "international"
+            scope: "china"
         },
         {
             id: "bonny-island",
@@ -80,7 +80,7 @@ export const FeaturedProjects = () => {
             title: PROJECTS_DATA["pipeline-epc-thailand"]?.title || '52 km of pipeline EPC.',
             description: PROJECTS_DATA["pipeline-epc-thailand"]?.intro || '',
             image: PROJECTS_DATA["pipeline-epc-thailand"]?.heroImage || '',
-            scope: "international"
+            scope: "thailand"
         }
     ];
 
@@ -100,19 +100,29 @@ export const FeaturedProjects = () => {
             subtext: "Delivering critical river crossings and shoreline pipeline installations under difficult tropical delta geology."
         },
         { 
-            id: "international", 
-            name: "International Experience",
-            description: "Complex pipeline work beyond Nigeria.",
-            subtext: "PCE's project record also includes major HDD and pipeline work in Thailand and China."
+            id: "thailand", 
+            name: "Thailand",
+            description: "Major gas crossings and pipeline EPC in Thailand.",
+            subtext: "Delivering long-distance HDD crossings and comprehensive pipeline construction across complex regional terrain."
+        },
+        { 
+            id: "china", 
+            name: "China",
+            description: "Major river crossings and complex geological drilling in China.",
+            subtext: "PCE's extensive track record includes large-diameter river crossings across challenging rock, gravel and silt strata."
+        },
+        { 
+            id: "bpds", 
+            name: "BPDS Construction Work",
+            description: "Deeply Buried Pipeline Detection & Construction Support.",
+            subtext: "Case studies and project records for BPDS pipeline location and specialized construction work are currently being prepared."
         }
     ];
 
     const [activeTab, setActiveTab] = useState<string>("all");
-    const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
     const handleTabChange = (tabId: string) => {
         setActiveTab(tabId);
-        setIsExpanded(false);
     };
 
     const activeTabInfo = tabs.find(t => t.id === activeTab);
@@ -121,8 +131,6 @@ export const FeaturedProjects = () => {
         if (activeTab === "all") return true;
         return project.scope === activeTab;
     });
-
-    const visibleProjects = isExpanded ? filteredProjects : filteredProjects.slice(0, 3);
 
     return (
         <section className="w-full bg-[var(--color-canvas)] section flex flex-col items-start gap-12 !px-0 md:!px-[var(--section-pad-x)]">
@@ -196,71 +204,63 @@ export const FeaturedProjects = () => {
                 </div>
             )}
 
-            {/* Decoupled Asymmetric Grid Layout (Parostec Editorial style) */}
-            <div className="w-full px-5 md:px-0 mt-8">
-                <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-16 lg:gap-y-24 items-start">
-                    {visibleProjects.map((item, index) => {
-                        let colClass = "lg:col-span-6";
-                        let imgAspect = "aspect-[16/10]";
-                        
-                        if (index % 3 === 0) {
-                            colClass = "lg:col-span-7";
-                            imgAspect = "aspect-[16/11]";
-                        } else if (index % 3 === 1) {
-                            colClass = "lg:col-span-5 lg:mt-24";
-                            imgAspect = "aspect-[4/3]";
-                        } else if (index % 3 === 2) {
-                            colClass = "lg:col-span-10 lg:col-start-2 lg:my-16";
-                            imgAspect = "aspect-[16/9]";
-                        }
-
-                        return (
-                            <FadeInSlideUp key={item.id} className={`w-full ${colClass}`}>
+            {/* Content Area: Grid of All Projects or Empty State */}
+            {filteredProjects.length === 0 ? (
+                <div className="w-full px-5 md:px-0 mt-8">
+                    <div className="w-full py-16 px-8 md:px-12 flex flex-col items-start gap-4 rounded-2xl bg-black/[0.02] border border-black/5">
+                        <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-accent)]">
+                            Project Documentation in Progress
+                        </span>
+                        <h4 className="text-xl md:text-2xl font-bold text-[var(--color-primary)]">
+                            BPDS Project Case Studies
+                        </h4>
+                        <p className="text-sm md:text-base text-[var(--color-ink-muted-48)] max-w-[600px] leading-relaxed">
+                            Detailed project records, depth profiles, and 3D positioning execution reports for our BPDS (Buried Pipeline Detection System) operations are being compiled and will be available shortly.
+                        </p>
+                        <Link
+                            href="/capabilities#bpds"
+                            className="inline-flex items-center gap-2 text-sm font-bold text-[var(--color-primary)] hover:text-[var(--color-accent)] transition-colors mt-2"
+                        >
+                            Explore BPDS Capability Overview →
+                        </Link>
+                    </div>
+                </div>
+            ) : (
+                /* Balanced 2-Column Grid Layout Showing All Projects */
+                <div className="w-full px-5 md:px-0 mt-8">
+                    <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-10 gap-y-16 items-start">
+                        {filteredProjects.map((item) => (
+                            <FadeInSlideUp key={item.id} className="w-full">
                                 <Link 
                                     href={`/projects/${item.slug}`}
                                     className="w-full flex flex-col items-start gap-5 no-underline group"
                                 >
                                     {/* Image Frame */}
-                                    <div className={`w-full ${imgAspect} relative rounded-xl overflow-hidden bg-black/5 cursor-pointer`}>
+                                    <div className="w-full aspect-[16/10] relative rounded-xl overflow-hidden bg-black/5 cursor-pointer border border-black/5">
                                         <div 
-                                            className="absolute inset-0 bg-cover bg-center transition-all duration-[800ms] ease-out group-hover:scale-102 filter grayscale group-hover:grayscale-0"
+                                            className="absolute inset-0 bg-cover bg-center transition-all duration-[800ms] ease-out group-hover:scale-105 filter grayscale group-hover:grayscale-0"
                                             style={{ backgroundImage: `url("${item.image}")` }}
                                         />
                                     </div>
                                     
                                     {/* Info block underneath */}
-                                    <div className="flex flex-col items-start gap-2 text-left max-w-[540px]">
-                                        <span className="text-[14px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary)] group-hover:text-[var(--color-accent)] transition-colors">
+                                    <div className="flex flex-col items-start gap-2 text-left w-full">
+                                        <span className="text-[13px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary)] group-hover:text-[var(--color-accent)] transition-colors">
                                             {item.tagline}
                                         </span>
                                         <h4 className="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors leading-snug">
                                             {item.title}
                                         </h4>
-                                        <p className="text-sm text-[var(--color-ink-muted-48)] leading-relaxed">
+                                        <p className="text-sm text-[var(--color-ink-muted-48)] leading-relaxed line-clamp-3">
                                             {item.description}
                                         </p>
                                     </div>
                                 </Link>
                             </FadeInSlideUp>
-                        );
-                    })}
-                </div>
-            </div>
-
-            {/* Giant Asymmetric Browse All Projects Link (Acts as a show-more expander) */}
-            {filteredProjects.length > 3 && !isExpanded && (
-                <div className="w-full px-5 md:px-0 mt-16 lg:mt-20 grid grid-cols-1 lg:grid-cols-12">
-                    <div className="lg:col-start-4 lg:col-span-9 flex justify-start">
-                        <button 
-                            onClick={() => setIsExpanded(true)}
-                            className="text-[28px] sm:text-[36px] lg:text-[44px] font-normal tracking-[0.15em] uppercase border-b-2 border-[var(--color-ink)] pb-2 text-[var(--color-ink)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] transition-all duration-300 leading-none"
-                        >
-                            Browse All Projects
-                        </button>
+                        ))}
                     </div>
                 </div>
             )}
-
 
         </section>
     );

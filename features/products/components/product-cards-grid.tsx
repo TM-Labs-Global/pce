@@ -2,27 +2,12 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Text } from '@/shared/components/ui/text';
 import { PRODUCTS_DATA } from '../data/products-data';
 
 export const ProductCardsGrid: React.FC = () => {
     return (
         <section className="w-full section bg-[#001723] text-white">
-            <div className="flex flex-col gap-20">
-                <div className="flex flex-col gap-3">
-                    <div className="flex items-center gap-2">
-                        <span className="w-6 h-[3px] bg-[#f4691a] inline-block" />
-                        <span className="text-sm uppercase tracking-wider text-[#f4691a] font-semibold">
-                            Our Products
-                        </span>
-                    </div>
-                    <Text variant="display-lg" as="h2" intent="default" className="!font-extrabold leading-tight !text-white max-w-[700px]">
-                        The Brighter Star Product Family
-                    </Text>
-                    <p className="text-base !text-white/80 max-w-3xl font-medium">
-                        Five materials cover the full range of HDD ground conditions. Used alone or in combination, they form a complete drilling fluid programme.
-                    </p>
-                </div>
+            <div className="flex flex-col gap-12">
 
                 {/* Grid of Product Cards (Full-Bleed Image Card Layout) */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">

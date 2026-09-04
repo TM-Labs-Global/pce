@@ -7,22 +7,22 @@ export const WhatWorks = () => {
         {
             title: "Specialist Engineering",
             label: "Crossing methods shaped around pipeline requirements, geology and route constraints.",
-            image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80"
+            image: "/pictures/company/specialist-enginering.jpg"
         },
         {
             title: "Appropriate Equipment",
             label: "Rig, guidance, drilling-fluid and support systems configured around the technical demands of the work.",
-            image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80"
+            image: "/pictures/equipment/main-equipments-cover-photo.jpg"
         },
         {
             title: "Coordinated Execution",
             label: "Engineering, equipment, field operations, safety and quality brought together around the crossing.",
-            image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80"
+            image: "/pictures/hero-slider/ob3-construction-team.jpg"
         },
         {
             title: "Experience Carried Forward",
             label: "Lessons from complex projects informing engineering and execution decisions on the next route.",
-            image: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&q=80"
+            image: "/pictures/capabilities/handover.jpg"
         }
     ];
 

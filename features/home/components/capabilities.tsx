@@ -1,10 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { Text } from '@/shared/components/ui/text';
-import { ArrowRight } from '@phosphor-icons/react';
+import { ArrowRight, ArrowsOut } from '@phosphor-icons/react';
 import { FadeInSlideUp, StaggerContainer, StaggerItem } from '@/shared/components/ui/fade-in-slide-up';
+import { OverviewLightboxModal, GalleryCategory } from './overview-lightbox-modal';
 
 interface CapabilityCard {
     id: string;
@@ -13,43 +14,93 @@ interface CapabilityCard {
     description: string;
     image: string;
     link: string;
+    gallery: GalleryCategory;
 }
 
-export const Capabilities = () => {
-    const capabilitiesList: CapabilityCard[] = [
-        {
+const CAPABILITIES_LIST: CapabilityCard[] = [
+    {
+        id: "hdd",
+        number: "01",
+        title: "Horizontal Directional Drilling",
+        description: "Specialist HDD engineering and construction for complex river, road, coastal and hard-ground crossings.",
+        image: "/pictures/hero-slider/drilling-rig-cover-photo.jpg",
+        link: "/capabilities#hdd",
+        gallery: {
             id: "hdd",
-            number: "01",
-            title: "Horizontal Directional Drilling",
-            description: "Specialist HDD engineering and construction for complex river, road, coastal and hard-ground crossings.",
-            image: "/pictures/home-page/horizontal-drilling-new.jpg",
-            link: "/capabilities"
-        },
-        {
-            id: "epc",
-            number: "02",
-            title: "Pipeline EPC",
-            description: "Engineering, procurement and construction for pipeline projects, including construction, testing, pre-commissioning and commissioning support.",
-            image: "/pictures/home-page/pipeline-drilling.jpg",
-            link: "/capabilities"
-        },
-        {
-            id: "bpds",
-            number: "03",
-            title: "BPDS Pipeline Location",
-            description: "Three-dimensional location and depth measurement for deeply buried steel pipelines in complex environments.",
-            image: "/pictures/home-page/pipeline-new.jpg",
-            link: "/capabilities"
-        },
-        {
-            id: "support",
-            number: "04",
-            title: "Equipment & Technical Support",
-            description: "HDD rigs, drilling systems, specialist tools, materials and technical field support aligned to project requirements.",
-            image: "/pictures/home-page/equipment.jpg",
-            link: "/capabilities"
+            categoryTitle: "Horizontal Directional Drilling (HDD) Capability",
+            items: [
+                { src: "/pictures/hero-slider/drilling-rig-cover-photo.jpg", title: "1200t / 500t Heavy HDD Drilling Rig System" },
+                { src: "/pictures/hero-slider/drilling-rig-03.jpg", title: "HDD Drilling Rig Operations & High-Pressure Mud Line" },
+                { src: "/pictures/hero-slider/hdd-02.jpg", title: "River Niger HDD Crossing Site" },
+                { src: "/pictures/hero-slider/offshore-hdd-project.jpg", title: "Offshore HDD Project Site Infrastructure" },
+                { src: "/pictures/hero-slider/team-in-suits.jpg", title: "PCE Executive & Management Team" }
+            ]
         }
-    ];
+    },
+    {
+        id: "epc",
+        number: "02",
+        title: "Pipeline EPC",
+        description: "Engineering, procurement and construction for pipeline projects, including construction, testing, pre-commissioning and commissioning support.",
+        image: "/pictures/hero-slider/pipeline-epc-cover-photo.JPG",
+        link: "/capabilities#epc",
+        gallery: {
+            id: "epc",
+            categoryTitle: "52km Pipeline EPC Construction",
+            items: [
+                { src: "/pictures/hero-slider/pipeline-epc-cover-photo.JPG", title: "52km Pipeline EPC Construction Site" },
+                { src: "/pictures/company/specialist-pipe-2.jpg", title: "52km Pipeline EPC Heavy Pipe Operations" },
+                { src: "/pictures/company/specialist-pipe.jpg", title: "Pipeline Trenching, Alignment & Welding" },
+                { src: "/pictures/company/pipeline.jpg", title: "Pipeline Coating, Hydrotesting & Pre-Commissioning" }
+            ]
+        }
+    },
+    {
+        id: "bpds",
+        number: "03",
+        title: "BPDS Pipeline Location",
+        description: "Three-dimensional location and depth measurement for deeply buried steel pipelines in complex environments.",
+        image: "/pictures/hero-slider/bpds-cover-photo.png",
+        link: "/capabilities#bpds",
+        gallery: {
+            id: "bpds",
+            categoryTitle: "New Pipeline Location Survey Technique - BPDS",
+            items: [
+                { src: "/pictures/hero-slider/bpds-cover-photo.png", title: "BPDS 3D Pipeline Location & Depth Survey" },
+                { src: "/pictures/hero-slider/bpds-02.png", title: "BPDS Detection Equipment Field Operation" },
+                { src: "/pictures/hero-slider/bpds-03.png", title: "BPDS Signal Transmitter & Cable Connection" },
+                { src: "/pictures/hero-slider/bpds-04.png", title: "Buried Pipeline Sensor Receiver System" },
+                { src: "/pictures/hero-slider/bpds-05.png", title: "3D Coordinate & Magnetic Data Processing" },
+                { src: "/pictures/hero-slider/bpds-06.png", title: "River Crossing Pipeline Burial Depth Mapping" },
+                { src: "/pictures/hero-slider/bpds-07.png", title: "Complex Environment Deep Burial Surveying" },
+                { src: "/pictures/hero-slider/bpds-08.png", title: "BPDS Magnetic Field Data Logging" },
+                { src: "/pictures/hero-slider/bpds-09.png", title: "Pipeline Alignment Verification on Site" }
+            ]
+        }
+    },
+    {
+        id: "support",
+        number: "04",
+        title: "Equipment & Technical Support",
+        description: "HDD rigs, drilling systems, specialist tools, materials and technical field support aligned to project requirements.",
+        image: "/pictures/equipment/main-equipments-cover-photo.jpg",
+        link: "/capabilities#support",
+        gallery: {
+            id: "support",
+            categoryTitle: "PCE Equipment Yard & Technical Fleet",
+            items: [
+                { src: "/pictures/equipment/main-equipments-cover-photo.jpg", title: "PCE Main Equipment Yard (Aerial View)" },
+                { src: "/pictures/equipment/equipment-02.png", title: "Heavy Equipment Yard & Component Stock" },
+                { src: "/pictures/equipment/equipment-03.png", title: "HDD Rig Components & Field Equipment" },
+                { src: "/pictures/equipment/equipment-04.png", title: "Field Heavy Construction Fleet & Excavators" },
+                { src: "/pictures/equipment/equipment-05.png", title: "Pipeline Supplies & Materials Stockpile" }
+            ]
+        }
+    }
+];
+
+export const Capabilities = () => {
+    const [selectedGallery, setSelectedGallery] = useState<GalleryCategory | null>(null);
 
     return (
         <section className="w-full bg-[var(--color-canvas)] section flex flex-col items-start gap-20">
@@ -82,43 +133,71 @@ export const Capabilities = () => {
 
             {/* Bento Grid of Cards */}
             <StaggerContainer className="w-full grid grid-cols-1 lg:grid-cols-12 gap-6">
-                {capabilitiesList.map((cap, index) => {
+                {CAPABILITIES_LIST.map((cap, index) => {
                     const colSpan = (index === 0 || index === 3) 
                         ? 'lg:col-span-7' 
                         : 'lg:col-span-5';
 
                     return (
                         <StaggerItem key={cap.id} className={`col-span-1 ${colSpan} w-full`}>
-                            <Link href="/capabilities" className="no-underline block w-full h-full">
-                                <div className="relative w-full h-[320px] sm:h-[380px] lg:h-[420px] overflow-hidden rounded-2xl border border-black/10 shadow-sm group cursor-pointer flex flex-col justify-end p-6 sm:p-8 md:p-10">
-                                    {/* Background Image */}
-                                    <div 
-                                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
-                                        style={{ backgroundImage: `url("${cap.image}")` }}
-                                    />
-                                    {/* Gradient Overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 group-hover:from-black/95 transition-colors duration-500" />
-                                    
-                                    {/* Content Overlay (Title + Number + Icon) */}
-                                    <div className="relative z-10 flex flex-col items-start gap-3 w-full">
-                                        <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent)]">
-                                            {cap.number}
-                                        </span>
-                                        <div className="flex items-end justify-between w-full gap-4">
-                                            <h3 className="!text-[22px] sm:!text-[28px] lg:!text-[32px] font-extrabold text-white leading-tight group-hover:text-[var(--color-accent)] transition-colors max-w-[480px]">
-                                                {cap.title}
-                                            </h3>
-                                            <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shrink-0 group-hover:bg-[var(--color-accent)] group-hover:border-[var(--color-accent)] group-hover:translate-x-0.5 transition-all duration-300">
-                                                <ArrowRight size={20} weight="bold" />
-                                            </div>
-                                        </div>
+                            <div 
+                                onClick={() => setSelectedGallery(cap.gallery)}
+                                className="relative w-full h-[320px] sm:h-[380px] lg:h-[420px] overflow-hidden rounded-2xl border border-black/10 shadow-sm group cursor-pointer flex flex-col justify-end p-6 sm:p-8 md:p-10 select-none"
+                                role="button"
+                                tabIndex={0}
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter' || e.key === ' ') {
+                                        e.preventDefault();
+                                        setSelectedGallery(cap.gallery);
+                                    }
+                                }}
+                                aria-label={`View photo gallery for ${cap.title}`}
+                            >
+                                {/* Background Image */}
+                                <div 
+                                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
+                                    style={{ backgroundImage: `url("${cap.image}")` }}
+                                />
+                                {/* Gradient Overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 group-hover:from-black/95 transition-colors duration-500" />
+                                
+                                {/* Expand Gallery Badge */}
+                                <div className="absolute top-5 right-5 z-10 flex items-center gap-1.5 bg-black/50 backdrop-blur-md border border-white/15 px-3 py-1.5 rounded-full text-xs font-medium text-white/80 group-hover:text-white group-hover:bg-[var(--color-accent)] group-hover:text-black group-hover:border-transparent transition-all duration-300">
+                                    <span>View Gallery ({cap.gallery.items.length})</span>
+                                    <ArrowsOut size={14} weight="bold" />
+                                </div>
+
+                                {/* Content Overlay (Title + Number + Icon) */}
+                                <div className="relative z-10 flex flex-col items-start gap-3 w-full">
+                                    <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent)]">
+                                        {cap.number}
+                                    </span>
+                                    <div className="flex items-end justify-between w-full gap-4">
+                                        <h3 className="!text-[22px] sm:!text-[28px] lg:!text-[32px] font-extrabold text-white leading-tight group-hover:text-[var(--color-accent)] transition-colors max-w-[480px]">
+                                            {cap.title}
+                                        </h3>
+                                        <Link 
+                                            href={cap.link} 
+                                            onClick={(e) => e.stopPropagation()}
+                                            className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shrink-0 group-hover:bg-[var(--color-accent)] group-hover:border-[var(--color-accent)] group-hover:translate-x-0.5 transition-all duration-300"
+                                            title={`Explore ${cap.title}`}
+                                        >
+                                            <ArrowRight size={20} weight="bold" />
+                                        </Link>
                                     </div>
                                 </div>
-                            </Link>
+                            </div>
                         </StaggerItem>
                     );
                 })}
             </StaggerContainer>
+
+            {/* Lightbox Modal */}
+            <OverviewLightboxModal
+                isOpen={selectedGallery !== null}
+                onClose={() => setSelectedGallery(null)}
+                gallery={selectedGallery}
+            />
 
         </section>
     );

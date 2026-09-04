@@ -7,9 +7,11 @@ import { usePathname } from 'next/navigation';
 export const SiteHeader = () => {
     const pathname = usePathname();
     const [isCompanyMenuOpen, setIsCompanyMenuOpen] = useState(false);
+    const [isCapabilitiesMenuOpen, setIsCapabilitiesMenuOpen] = useState(false);
     const [isProductsMenuOpen, setIsProductsMenuOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isMobileCompanyOpen, setIsMobileCompanyOpen] = useState(false);
+    const [isMobileCapabilitiesOpen, setIsMobileCapabilitiesOpen] = useState(false);
     const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false);
     const [hoveredProductImage, setHoveredProductImage] = useState('/pictures/product-image/brsbent-sq-pack.png');
 
@@ -17,6 +19,8 @@ export const SiteHeader = () => {
         pathname === '/our-company' ||
         pathname === '/equipment-technology' ||
         pathname === '/safety-quality-responsibility';
+
+    const isCapabilitiesActive = pathname === '/capabilities';
 
     const isProductsActive = pathname === '/products' || pathname.startsWith('/products/');
 
@@ -35,6 +39,29 @@ export const SiteHeader = () => {
             title: 'Safety & Quality',
             href: '/safety-quality-responsibility',
             description: 'ISO-certified QHSE frameworks, zero-incidents policy, and environmental stewardship.',
+        },
+    ];
+
+    const capabilitySubLinks = [
+        {
+            title: 'Horizontal Directional Drilling',
+            href: '/capabilities#hdd',
+            description: 'Specialist HDD engineering for river, road, coastal and complex-ground crossings.',
+        },
+        {
+            title: 'Pipeline EPC',
+            href: '/capabilities#epc',
+            description: 'Comprehensive engineering, procurement, construction, welding, and commissioning.',
+        },
+        {
+            title: 'BPDS Pipeline Location',
+            href: '/capabilities#bpds',
+            description: '3D location and depth measurement for deeply buried steel pipelines.',
+        },
+        {
+            title: 'Equipment & Technical Support',
+            href: '/capabilities#support',
+            description: 'High-tonnage rigs, pumps, recycling systems, tooling and technical expertise.',
         },
     ];
 
@@ -77,7 +104,6 @@ export const SiteHeader = () => {
     ];
 
     const navLinksBeforeProducts = [
-        { href: '/capabilities', label: 'Capabilities' },
         { href: '/projects', label: 'Projects' },
     ];
 
@@ -189,6 +215,85 @@ export const SiteHeader = () => {
                             )}
                         </div>
 
+                        {/* Capabilities Dropdown Trigger */}
+                        <div
+                            className="relative"
+                            onMouseEnter={() => setIsCapabilitiesMenuOpen(true)}
+                            onMouseLeave={() => setIsCapabilitiesMenuOpen(false)}
+                        >
+                            <button
+                                onClick={() => setIsCapabilitiesMenuOpen(!isCapabilitiesMenuOpen)}
+                                className={`flex items-center gap-1.5 text-sm font-semibold transition-colors py-7 no-underline ${
+                                    isCapabilitiesActive || isCapabilitiesMenuOpen
+                                        ? 'text-[var(--color-primary)] font-bold'
+                                        : 'text-[var(--color-ink-muted-48)] hover:text-[var(--color-primary)]'
+                                }`}
+                            >
+                                <span>Capabilities</span>
+                                <svg
+                                    className={`w-4 h-4 transition-transform duration-200 ${
+                                        isCapabilitiesMenuOpen ? 'rotate-180 text-[var(--color-primary)]' : 'text-black/40'
+                                    }`}
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+
+                            {/* Capabilities Mega Menu Dropdown */}
+                            {isCapabilitiesMenuOpen && (
+                                <div className="absolute left-1/2 -translate-x-1/2 top-[100%] w-[720px] bg-white rounded-2xl shadow-xl border border-black/10 p-6 grid grid-cols-12 gap-6 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                                    {/* Left Links Column */}
+                                    <div className="col-span-7 flex flex-col justify-between pr-2 border-r border-black/5">
+                                        <div className="flex flex-col gap-4">
+                                            <div className="flex items-center justify-between px-2.5">
+                                                <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-accent)]">
+                                                    Core Capabilities
+                                                </span>
+                                                <Link
+                                                    href="/capabilities"
+                                                    onClick={() => setIsCapabilitiesMenuOpen(false)}
+                                                    className="text-xs font-bold text-[var(--color-primary)] hover:underline no-underline"
+                                                >
+                                                    View All Overview →
+                                                </Link>
+                                            </div>
+                                            <div className="flex flex-col gap-1.5">
+                                                {capabilitySubLinks.map((subLink) => (
+                                                    <Link
+                                                        key={subLink.href}
+                                                        href={subLink.href}
+                                                        onClick={() => setIsCapabilitiesMenuOpen(false)}
+                                                        className="group p-2 rounded-xl hover:bg-[#052237]/5 transition-colors no-underline block"
+                                                    >
+                                                        <div className="text-sm font-bold text-[#052237] group-hover:text-[var(--color-primary)] transition-colors">
+                                                            {subLink.title}
+                                                        </div>
+                                                        <div className="text-xs text-[var(--color-ink-muted-48)] mt-0.5 leading-normal">
+                                                            {subLink.description}
+                                                        </div>
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Right Image Showcase Panel */}
+                                    <div className="col-span-5">
+                                        <div className="relative block h-full min-h-[220px] rounded-xl overflow-hidden shadow-sm">
+                                            <img
+                                                src="/pictures/home-page/horizontal-drilling-new.jpg"
+                                                alt="PCE Core Capabilities"
+                                                className="w-full h-full object-cover"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+
                         {/* Links Before Products */}
                         {navLinksBeforeProducts.map((link) => {
                             const isActive = pathname === link.href;
@@ -257,7 +362,11 @@ export const SiteHeader = () => {
                                                     Explore our catalog.
                                                 </div>
                                             </Link>
-                                            <div className="w-full flex items-center justify-between p-3 rounded-xl bg-[#052237]/5 text-left">
+                                            <Link
+                                                href="/products"
+                                                onClick={() => setIsProductsMenuOpen(false)}
+                                                className="w-full flex items-center justify-between p-3 rounded-xl bg-[#052237]/5 text-left hover:bg-[#052237]/10 transition-colors no-underline"
+                                            >
                                                 <span className="text-base font-extrabold text-[#052237] whitespace-nowrap">Individual Products</span>
                                                 <svg
                                                     className="w-4 h-4 text-[var(--color-primary)] shrink-0"
@@ -267,7 +376,7 @@ export const SiteHeader = () => {
                                                 >
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                                 </svg>
-                                            </div>
+                                            </Link>
                                         </div>
                                     </div>
 
@@ -392,6 +501,48 @@ export const SiteHeader = () => {
                             {isMobileCompanyOpen && (
                                 <div className="flex flex-col gap-2 pt-3 pl-3 animate-in fade-in slide-in-from-top-1 duration-150">
                                     {companySubLinks.map((sub) => (
+                                        <Link
+                                            key={sub.href}
+                                            href={sub.href}
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                            className="text-base font-semibold text-[#052237]/80 hover:text-[var(--color-primary)] no-underline py-1.5"
+                                        >
+                                            {sub.title}
+                                        </Link>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Mobile Capabilities Dropdown Accordion */}
+                        <div className="border-b border-black/5 pb-3">
+                            <button
+                                onClick={() => setIsMobileCapabilitiesOpen(!isMobileCapabilitiesOpen)}
+                                className="w-full flex items-center justify-between text-lg font-bold text-[#052237] no-underline py-0.5"
+                            >
+                                <span>Capabilities</span>
+                                <svg
+                                    className={`w-5 h-5 text-black/40 transition-transform duration-200 ${
+                                        isMobileCapabilitiesOpen ? 'rotate-180 text-[var(--color-primary)]' : ''
+                                    }`}
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+
+                            {isMobileCapabilitiesOpen && (
+                                <div className="flex flex-col gap-2 pt-3 pl-3 animate-in fade-in slide-in-from-top-1 duration-150">
+                                    <Link
+                                        href="/capabilities"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="text-base font-bold text-[var(--color-primary)] hover:underline no-underline py-1.5"
+                                    >
+                                        Capabilities Overview →
+                                    </Link>
+                                    {capabilitySubLinks.map((sub) => (
                                         <Link
                                             key={sub.href}
                                             href={sub.href}

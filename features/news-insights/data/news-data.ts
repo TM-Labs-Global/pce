@@ -1,152 +1,154 @@
 import { NewsArticleDetail } from '../types/news.types';
 
 export const NEWS_DATA: Record<string, NewsArticleDetail> = {
-    "pce-completes-record-breaking-hdd-crossing": {
+    "ob3-river-niger-hdd-crossing-completion-report": {
         id: "1",
-        slug: "pce-completes-record-breaking-hdd-crossing",
-        title: "PCE Nigeria Completes Record-Breaking Horizontal Directional Drilling Crossing.",
+        slug: "ob3-river-niger-hdd-crossing-completion-report",
+        title: "Completion Report: PCE Successfully Installs 2km OB3 River Niger HDD Crossing.",
         category: "News",
-        date: "AUGUST 24, 2026",
+        date: "APRIL 28, 2026",
         readTime: "4 min read",
-        author: "PCE Engineering Team",
-        heroImage: "/pictures/home-page/horizontal-drilling-new.jpg",
+        author: "PCE Engineering Directorate",
+        heroImage: "/pictures/case-study/ob3/ob3-bento-1.jpg",
         bentoImages: [
-            "/pictures/capabilities/engineer-on-site.jpg",
-            "/pictures/capabilities/prepare-equipment.jpg",
-            "/pictures/home-page/pipe-handling-capacity.jpg",
-            "/pictures/capabilities/survey.jpg",
-            "/pictures/capabilities/completed-project.jpg"
+            "/pictures/hero-slider/ob3-construction-team.jpg",
+            "/pictures/hero-slider/ob3-02-team.jpg",
+            "/pictures/case-study/ob3/ob3-bento-2.jpg",
+            "/pictures/case-study/ob3/ob3-bento-3.jpg"
         ],
-        intro: "Our engineering team successfully executed a 1,200m river channel HDD crossing using advanced mud recycling systems and precision steering guidance.",
+        intro: "PCE executed the River Niger HDD crossing on the OB3 Gas Pipeline between Ndoni in Rivers State and Aboh in Delta State, successfully completing 2 km of 48-inch pipeline installation.",
         specs: [
-            { label: "Crossing Length", value: "1,200 metres" },
-            { label: "Pipeline Size", value: "36 in" },
-            { label: "Max Depth", value: "32 metres" },
-            { label: "Completion", value: "August 2026" }
+            { label: "Pipeline Diameter", value: "48 inches" },
+            { label: "Crossing Length", value: "2,000 metres" },
+            { label: "Crossing Depth", value: "52 metres" },
+            { label: "Completion Date", value: "28th April, 2026" }
         ],
         sections: [
             {
-                tagline: "PROJECT OVERVIEW",
-                heading: "Overcoming challenging deltaic geology and water currents.",
+                tagline: "MILESTONE ACHIEVED",
+                heading: "Connecting critical national gas infrastructure across the River Niger.",
                 headingColor: "text-[var(--color-ink-muted-48)]",
                 body: [
-                    "PCE Nigeria has achieved a major milestone with the successful installation of a 36-inch high-pressure steel pipeline beneath a major river channel.",
-                    "The crossing encountered complex strata comprising soft alluvial silt, medium-to-coarse sand, and high water-table pressures. Utilizing specialized HDD spreads and continuous drilling-fluid optimization, the team maintained bore integrity throughout pilot drilling, reaming, and pullback."
+                    "PCE completed the 2,000-metre, 48-inch HDD crossing between KP15 and KP17, connecting Ndoni in Rivers State to Aboh in Delta State.",
+                    "Following previous specialist attempts that remained incomplete, NGIC entrusted PCE with the crossing package. PCE deployed high-capacity HDD rig spreads, dual-rig intersecting pilot hole technology, and self-developed drilling fluids to complete the project."
                 ]
             },
             {
-                tagline: "TECHNICAL EXECUTION",
-                heading: "Advanced steering precision and high-capacity pullback.",
+                tagline: "EXECUTION HIGHLIGHTS",
+                heading: "High-tonnage pullback and dual-rig synchronous reaming.",
                 headingColor: "text-[var(--color-ink-muted-48)]",
                 body: [
-                    "Execution highlights for this record-breaking installation included:"
+                    "Key technical parameters and equipment deployed on the crossing:"
                 ],
                 bullets: [
-                    "Electromagnetic ParaTrack guidance for sub-metre steering accuracy",
-                    "High-efficiency closed-loop mud recycling systems to minimize waste",
-                    "500-ton HDD rig spread with automated pipe-handling systems",
-                    "Real-time annular pressure monitoring preventing mud loss"
+                    "GS-12000L HDD rig with 1,000+ tonnes pulling capacity",
+                    "GD-5000L HDD rig with 500 tonnes pulling capacity",
+                    "Dual-rig intersecting pilot hole guidance across 2,000 metres",
+                    "Self-developed drilling-fluid formulation for complex gravel, sand and rock strata"
                 ],
                 highlightStat: {
-                    value: "1,200 m",
-                    label: "Continuous HDD crossing"
+                    value: "2,000 m",
+                    label: "Completed 48-inch HDD crossing"
                 }
             }
         ]
     },
-    "achieving-iso-excellence-across-operations": {
+    "latest-progress-52km-pipeline-epc-project": {
         id: "2",
-        slug: "achieving-iso-excellence-across-operations",
-        title: "Achieving ISO Technical & Environmental Excellence Across Operations.",
-        category: "Insights",
-        date: "AUGUST 18, 2026",
-        readTime: "5 min read",
-        author: "PCE QHSE Directorate",
-        heroImage: "/pictures/capabilities/engineer-on-site.jpg",
-        bentoImages: [
-            "/pictures/safety/protection-two.jpg",
-            "/pictures/safety/standards.jpg",
-            "/pictures/safety/environmental-care.jpg"
-        ],
-        intro: "PCE Nigeria reaffirms its commitment to stringent NMDPRA and ISO compliance standards across all onshore and river crossing projects.",
-        specs: [
-            { label: "Certification", value: "ISO 9001 / 14001 / 45001" },
-            { label: "Regulatory Body", value: "NMDPRA Compliance" },
-            { label: "Safety Record", value: "Zero LTI" },
-            { label: "Scope", value: "National Operations" }
-        ],
-        sections: [
-            {
-                tagline: "STANDARDS & RESPONSIBILITY",
-                heading: "Embedding safety, quality, and environmental care into every workflow.",
-                headingColor: "text-[var(--color-ink-muted-48)]",
-                body: [
-                    "Operational excellence in pipeline engineering requires continuous alignment with global quality and safety benchmarks.",
-                    "PCE Nigeria's integrated QHSE management system ensures that every project phase—from initial geotechnical survey through hydrotesting and commissioning—adheres strictly to ISO standards and NMDPRA regulations."
-                ]
-            },
-            {
-                tagline: "SUSTAINABLE PERFORMANCE",
-                heading: "Protecting ecosystems above and beneath the surface.",
-                headingColor: "text-[var(--color-ink-muted-48)]",
-                body: [
-                    "By leveraging trenchless HDD methodologies, PCE reduces surface environmental footprint and avoids disturbance to riverbeds, roadways, and surrounding communities."
-                ]
-            }
-        ]
-    },
-    "fleet-expansion-high-tonnage-rig-capacity": {
-        id: "3",
-        slug: "fleet-expansion-high-tonnage-rig-capacity",
-        title: "Fleet Expansion: Integrating High-Tonnage Rig Capacity for Deep Crossings.",
+        slug: "latest-progress-52km-pipeline-epc-project",
+        title: "Latest Progress: 52km Pipeline EPC Project Operations & Construction.",
         category: "News",
-        date: "AUGUST 10, 2026",
-        readTime: "3 min read",
-        author: "PCE Operations Team",
-        heroImage: "/pictures/home-page/pipe-handling-capacity.jpg",
-        intro: "An inside look at PCE's heavy equipment fleet expansion, enhancing pullback capabilities for large-diameter pipelines.",
+        date: "MAY 2026",
+        readTime: "5 min read",
+        author: "PCE Project Management Office",
+        heroImage: "/pictures/hero-slider/pipeline-epc-cover-photo.JPG",
+        bentoImages: [
+            "/pictures/company/specialist-pipe-2.jpg",
+            "/pictures/company/specialist-pipe.jpg",
+            "/pictures/company/pipeline.jpg",
+            "/pictures/equipment/main-equipments-cover-photo.jpg"
+        ],
+        intro: "An operational update on PCE's comprehensive 52km Pipeline EPC project, combining continuous HDD, trenching, welding, NDT, hydrotesting, coating, and pre-commissioning.",
         specs: [
-            { label: "Rig Capacity", value: "500-ton & 1,000-ton" },
-            { label: "Mud Pumps", value: "Triplex Heavy Duty" },
-            { label: "Pipe Rollers", value: "100+ Fleet Units" },
-            { label: "Location", value: "Nigeria Operations" }
+            { label: "Pipeline Length", value: "52 km" },
+            { label: "Continuous HDD", value: "30+ km" },
+            { label: "Pipeline Diameter", value: "12 in" },
+            { label: "Scope", value: "Full EPC Execution" }
         ],
         sections: [
             {
-                tagline: "EQUIPMENT CAPACITY",
-                heading: "High-tonnage power backing critical energy infrastructure.",
+                tagline: "EPC PROGRESS UPDATE",
+                heading: "Continuous field execution across 52 kilometres.",
                 headingColor: "text-[var(--color-ink-muted-48)]",
                 body: [
-                    "To support Nigeria's expanding gas transport network, PCE has reinforced its field-ready equipment fleet with additional high-tonnage HDD rigs, heavy pipe-handling machines, and high-volume mud pumps.",
-                    "This capacity expansion ensures PCE remains fully equipped to tackle major 40-inch and 48-inch river crossings across West Africa."
+                    "PCE's EPC project team continues to advance construction operations across the 52km pipeline route.",
+                    "The scope includes extensive continuous HDD crossings spanning over 30 kilometres, alongside open-cut trenching, automatic welding, non-destructive testing (NDT), field joint coating, hydrostatic testing, and commissioning support."
                 ]
             }
         ]
     },
-    "advanced-bpds-pipeline-location-mapping": {
-        id: "4",
-        slug: "advanced-bpds-pipeline-location-mapping",
-        title: "Advanced BPDS Pipeline Location & Geotechnical Mapping.",
+    "akk-river-niger-hdd-crossing-completion-milestone": {
+        id: "3",
+        slug: "akk-river-niger-hdd-crossing-completion-milestone",
+        title: "AKK River Niger Crossing: Specialist HDD Execution Beneath Mixed Strata.",
         category: "Insights",
-        date: "JULY 28, 2026",
-        readTime: "6 min read",
-        author: "PCE Geotechnical Department",
-        heroImage: "/pictures/capabilities/survey.jpg",
-        intro: "How electromagnetic and subsurface radar technologies are reducing risk and accelerating project timelines.",
+        date: "JULY 26, 2025",
+        readTime: "4 min read",
+        author: "PCE HDD Operations",
+        heroImage: "/pictures/case-study/akk/akk-bento-1.jpg",
+        bentoImages: [
+            "/pictures/hero-slider/akk-cover-photo.jpg",
+            "/pictures/case-study/akk/akk-bento-2.jpg",
+            "/pictures/case-study/akk/akk-bento-3.jpg"
+        ],
+        intro: "PCE completed the specialist HDD crossing for the 40-inch AKK gas pipeline beneath the River Niger through complex sand, gravel and rock strata.",
         specs: [
-            { label: "Survey Tech", value: "3D Electromagnetic BPDS" },
-            { label: "Detection Depth", value: "Up to 100m+" },
-            { label: "Accuracy", value: "Sub-decimetre" },
-            { label: "Application", value: "Deep Steel Pipelines" }
+            { label: "Pipeline Diameter", value: "40 inches" },
+            { label: "Crossing Length", value: "1,565 metres" },
+            { label: "Crossing Depth", value: "16 metres" },
+            { label: "Completion Date", value: "26th July, 2025" }
         ],
         sections: [
             {
-                tagline: "SUB-SURFACE PRECISION",
-                heading: "Accurate 3D pipeline mapping in complex environments.",
+                tagline: "SPECIALIST ENGINEERING",
+                heading: "Dual-rig intersecting method for project-critical gas infrastructure.",
                 headingColor: "text-[var(--color-ink-muted-48)]",
                 body: [
-                    "Buried pipeline location and condition assessment in deep or marshy terrain presents unique technical challenges.",
-                    "PCE's BPDS (Buried Pipeline Detection System) technology delivers 3D positional coordinates and depth measurements for deeply buried steel pipelines, eliminating guesswork prior to crossing construction."
+                    "The 1.565 km River Niger crossing formed a crucial package on the Ajaokuta–Kaduna–Kano (AKK) Trans Nigeria Gas Pipeline project.",
+                    "PCE's technical execution utilized dual-rig intersecting pilot holes and synchronous reaming to navigate complex geology and secure pipeline installation."
+                ]
+            }
+        ]
+    },
+    "advanced-bpds-pipeline-location-technique": {
+        id: "4",
+        slug: "advanced-bpds-pipeline-location-technique",
+        title: "New Pipeline Location Survey Technique: BPDS 3D Subsurface Mapping.",
+        category: "Insights",
+        date: "2026",
+        readTime: "4 min read",
+        author: "PCE Technical Steering Group",
+        heroImage: "/pictures/hero-slider/bpds-cover-photo.png",
+        bentoImages: [
+            "/pictures/hero-slider/bpds-02.png",
+            "/pictures/hero-slider/bpds-03.png",
+            "/pictures/hero-slider/bpds-06.png"
+        ],
+        intro: "Three-dimensional location and depth measurement technique for deeply buried steel pipelines beneath river crossings and complex geological environments.",
+        specs: [
+            { label: "Technology", value: "BPDS 3D Subsurface Mapping" },
+            { label: "Application", value: "Deep Steel Pipelines" },
+            { label: "Target Strata", value: "Rivers & Marshy Terrain" },
+            { label: "Output", value: "3D Coordinates & Burial Depth" }
+        ],
+        sections: [
+            {
+                tagline: "SURVEY INNOVATION",
+                heading: "Precision location and depth measurement for buried steel pipelines.",
+                headingColor: "text-[var(--color-ink-muted-48)]",
+                body: [
+                    "PCE's BPDS (Buried Pipeline Detection System) technique provides accurate three-dimensional positioning and depth measurement for deeply buried steel pipelines.",
+                    "The system operates effectively in difficult river and wetland environments where standard detection methods encounter depth and interference limits."
                 ]
             }
         ]
@@ -154,5 +156,5 @@ export const NEWS_DATA: Record<string, NewsArticleDetail> = {
 };
 
 export const getNewsBySlug = (slug: string): NewsArticleDetail => {
-    return NEWS_DATA[slug] || NEWS_DATA["pce-completes-record-breaking-hdd-crossing"];
+    return NEWS_DATA[slug] || NEWS_DATA["ob3-river-niger-hdd-crossing-completion-report"];
 };

@@ -16,9 +16,9 @@ export const ProductsPage: React.FC = () => {
     return (
         <div className="flex flex-col w-full bg-[#d8e7f1] min-h-screen">
             <ProductsHero />
+            <ProductCardsGrid />
             <ProductsAbout />
             <StratumGuide />
-            <ProductCardsGrid />
             <PerformanceMatrix />
             <HddCaseStudies />
             <StockLogistics />
